@@ -7,10 +7,10 @@ class Scanner {
   private byte[] buf = new byte[1000];
 
   public Scanner(InputStream i) { in = new PushbackInputStream(i); }
-    
+
   public Token getNextToken() {
     int bite = -1;
-	
+
     // It would be more efficient if we'd maintain our own input buffer
     // and read characters out of that buffer, but reading individual
     // characters from the input stream is easier.
@@ -23,7 +23,7 @@ class Scanner {
     if (bite == -1)
       return null;
 
-    char ch = (char) bite;
+   char ch = (char) bite;
 	if (ch == ' ')
 		return getNextToken();
 	else if (ch == ';') {
@@ -33,7 +33,7 @@ class Scanner {
 			} catch (IOException e) {
 				System.err.println("We fail: " + e.getMessage());
 			}
-			 ch = (char) bite;
+			ch = (char) bite;
 		} while (!(ch == '\n'));
 		return getNextToken();
 	}
@@ -51,9 +51,9 @@ class Scanner {
     // Boolean constants
     else if (ch == '#') {
       try {
-	bite = in.read();
+			bite = in.read();
       } catch (IOException e) {
-	System.err.println("We fail: " + e.getMessage());
+			System.err.println("We fail: " + e.getMessage());
       }
 
       if (bite == -1) {
@@ -74,7 +74,19 @@ class Scanner {
     // String constants
     else if (ch == '"') {
       // TODO: scan a string into the buffer variable buf
-      return new StrToken(buf.toString());
+      int i = 0;
+  		do {
+  			try {
+  				bite = in.read();
+  			} catch (IOException e) {
+  				System.err.println("We fail: " + e.getMessage());
+  			}
+        byte val = (byte) bite;
+        buf[i] = val; i++;
+  			ch = (char) bite;
+  		} while (!(ch == '"'));
+
+        return new StrToken(buf.toString());
     }
 
     // Integer constants
@@ -88,8 +100,8 @@ class Scanner {
     }
 
     // Identifiers
-    else if (ch >= 'A' && ch <= 'Z'
-	     /* or ch is some other valid first character for an identifier */) {
+    else if (ch >= 'A' && ch <= 'Z' || ch == '+' || ch == '-' || ch == '*' ||
+             ch == '/') {
       // TODO: scan an identifier into the buffer
 
       // put the character after the identifier back into the input
