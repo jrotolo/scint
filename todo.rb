@@ -21,8 +21,7 @@ def print_header outputFile
 	time = Time.new
 	outputFile.puts "************************************************************************************"
 	outputFile.puts "*  TODO LIST CSC 4101                     Last Updated: #{time}  *"
-	outputFile.puts "************************************************************************************"
-	outputFile.puts
+	outputFile.print "************************************************************************************"
 end
 
 outputFile = File.open("todo.txt", "w")
