@@ -1,6 +1,7 @@
 // Scanner.java -- the implementation of class Scanner
 
 import java.io.*;
+import java.util.*;
 
 class Scanner {
   private PushbackInputStream in;
@@ -91,19 +92,50 @@ class Scanner {
 
     // Integer constants
     else if (ch >= '0' && ch <= '9') {
-      int i = ch - '0';
-      // TODO: scan the number and convert it to an integer
+      int i = 0;
+  		Stack<Integer> intStack = new Stack();
 
-      // put the character after the integer back into the input
-      // in->putback(ch);
-      return new IntToken(i);
+  		do {
+  			i = ch - '0';
+  			System.out.println("push = " + i);
+  			intStack.push(new Integer(i));
+  			System.out.println("Stack = " + intStack);
+  			try {
+  				bite = in.read();
+  			} catch (IOException e) {
+  				System.err.println("We fail: " + e.getMessage());
+  			}
+  			ch = (char) bite;
+  		} while ((ch >= '0' && ch <= '9'));
+
+  		int intValue = 0;
+  		int j = 0;
+
+  		while (!intStack.empty()) {
+  			intValue += intStack.pop() * Math.pow(10, j++);
+  		}
+
+  		try {
+  			in.unread(ch);
+  		} catch (IOException e) {
+  			System.err.println("We fail: " + e.getMessage());
+  		}
+      
+      return new IntToken(intValue);
     }
 
     // Identifiers
-    else if (ch >= 'A' && ch <= 'Z' || ch == '+' || ch == '-' || ch == '*' ||
-             ch == '/') {
+    else if (ch >= 'A' && ch <= 'Z') {
       // TODO: scan an identifier into the buffer
-
+		do {
+			System.out.println(ch + ('a' - 'A'));
+			try {
+				bite = in.read();
+			} catch (IOException e) {
+				System.err.println("We fail: " + e.getMessage());
+			}
+			ch = (char) bite;
+		} while (ch >= 'a' && ch <= 'z');
       // put the character after the identifier back into the input
       // in->putback(ch);
       return new IdentToken(buf.toString());
