@@ -104,9 +104,7 @@ class Scanner {
 
   		do {
   			i = ch - '0';
-  			System.out.println("push = " + i);
   			intStack.push(new Integer(i));
-  			System.out.println("Stack = " + intStack);
   			try {
   				bite = in.read();
   			} catch (IOException e) {
