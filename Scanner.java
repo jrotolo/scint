@@ -70,7 +70,7 @@ class Scanner {
       else if (ch == 'f')
 	return new Token(Token.FALSE);
       else {
-	System.err.println("Illegal character '" + (char) ch + "' following #");
+	System.err.println("Illegal character '" + ch + "' following #");
 	return getNextToken();
       }
     }
