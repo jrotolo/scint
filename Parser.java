@@ -67,7 +67,7 @@ class Parser {
   }
 
   protected Node parseRest(Token inputToken) {
-    // TODO: write code for parsing rest
+    // TODO: write code for parsing DOT and QUOTE
     if (inputToken.getType() == Token.RPAREN)
       return getNilNode();
     else

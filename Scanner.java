@@ -26,19 +26,21 @@ class Scanner {
       return null;
 
    char ch = (char) bite;
-	if (ch == ' ')
-		return getNextToken();
-	else if (ch == ';') {
-		do {
-			try {
-				bite = in.read();
-			} catch (IOException e) {
-				System.err.println("We fail: " + e.getMessage());
-			}
-			ch = (char) bite;
-		} while (!(ch == '\n'));
-		return getNextToken();
-	}
+   
+  	if (ch == " " || ch == "\n"){
+  		return getNextToken();
+  	} else if (ch == ';') {
+  		do {
+  			try {
+  				bite = in.read();
+  			} catch (IOException e) {
+  				System.err.println("We fail: " + e.getMessage());
+  			}
+  			ch = (char) bite;
+  		} while (!(ch == '\n'));
+  		return getNextToken();
+  	}
+
     // Special characters
     if (ch == '\'')
       return new Token(Token.QUOTE);
