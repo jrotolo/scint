@@ -39,12 +39,11 @@ class Parser {
   public Parser(Scanner s) { scanner = s; }
   
   public Node parseExp() {
-    // TODO: write code for parsing an exp
     Token inputToken = scanner.getNextToken();
 
     // TODO: Figure out how to deal with TokenType QUOTE and DOT
     if (inputToken.getType() == Token.LPAREN)
-      parseRest();
+      return parseRest();
     else if (inputToken.getType() == Token.RPAREN)
       return new Nil();
     else if (inputToken.getType() == Token.TRUE)
@@ -60,10 +59,21 @@ class Parser {
 
     return null;
   }
+
+  public Node parseExp(Token inputToken) {
+    return null;
+  }
   
   protected Node parseRest() {
     // TODO: write code for parsing rest
-    return null;
+    Token inputToken = scanner.getNextToken();
+
+    if (inputToken.getType() == Token.RPAREN)
+      return new Nil();
+    else
+      return parseExp();
+
+    //return null;
   }
   
   // TODO: Add any additional methods you might need.
