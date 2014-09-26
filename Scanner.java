@@ -26,8 +26,8 @@ class Scanner {
       return null;
 
    char ch = (char) bite;
-   
-  	if (ch == " " || ch == "\n"){
+
+  	if (ch == ' ' || ch == '\n'){
   		return getNextToken();
   	} else if (ch == ';') {
   		do {
