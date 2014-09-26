@@ -2,6 +2,7 @@
 
 import java.io.*;
 import java.util.*;
+import java.lang.StringBuilder;
 
 class Scanner {
   private PushbackInputStream in;
@@ -74,20 +75,26 @@ class Scanner {
 
     // String constants
     else if (ch == '"') {
-      // TODO: scan a string into the buffer variable buf
-      int i = 0;
-  		do {
+      StringBuilder str = new StringBuilder();
+
+      try {
+        bite = in.read();
+      } catch (IOException e) {
+        System.err.println("We fail: " + e.getMessage());
+      }
+      ch = (char) bite;
+
+  		while (!(ch == '"')) {
+        str.append(ch);
   			try {
   				bite = in.read();
   			} catch (IOException e) {
   				System.err.println("We fail: " + e.getMessage());
   			}
-        byte val = (byte) bite;
-        buf[i] = val; i++;
-  			ch = (char) bite;
-  		} while (!(ch == '"'));
+        ch = (char) bite;
+  		}
 
-        return new StrToken(buf.toString());
+      return new StrToken(str.toString());
     }
 
     // Integer constants
@@ -120,7 +127,7 @@ class Scanner {
   		} catch (IOException e) {
   			System.err.println("We fail: " + e.getMessage());
   		}
-      
+
       return new IntToken(intValue);
     }
 
