@@ -35,6 +35,9 @@
 
 class Parser {
   private Scanner scanner;
+  private Node nilNode;
+  private Node trueNode;
+  private Node falseNode;
 
   public Parser(Scanner s) { scanner = s; }
   
@@ -45,11 +48,11 @@ class Parser {
     if (inputToken.getType() == Token.LPAREN)
       return parseRest();
     else if (inputToken.getType() == Token.RPAREN)
-      return new Nil();
+      return this.getNilNode();
     else if (inputToken.getType() == Token.TRUE)
-      return new BooleanLit(true);
+      return this.getTrueNode();
     else if (inputToken.getType() == Token.FALSE)
-      return new BooleanLit(false);
+      return this.getFalseNode();
     else if (inputToken.getType() == Token.INT)
       return new IntLit(inputToken.getIntVal());
     else if (inputToken.getType() == Token.STRING)
@@ -61,6 +64,7 @@ class Parser {
   }
 
   public Node parseExp(Token inputToken) {
+    
     return null;
   }
   
@@ -76,5 +80,23 @@ class Parser {
     //return null;
   }
   
-  // TODO: Add any additional methods you might need.
+
+  // Methods for singleton node objects
+  public Node getNilNode() {
+    if (nilNode == null)
+      nilNode = new Nil();
+    return nilNode;
+  }
+
+  public Node getTrueNode() {
+    if (trueNode == null)
+      trueNode = new BooleanLit(true);
+    return trueNode;
+  }
+
+  public Node getFalseNode() {
+    if (falseNode == null)
+      falseNode = new BooleanLit(false);
+    return falseNode;
+  }
 };
