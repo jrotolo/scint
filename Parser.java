@@ -42,13 +42,13 @@ class Parser {
   public Parser(Scanner s) { scanner = s; }
   
   public Node parseExp() {
-    Token inputToken = scanner.getNextToken();
+    return parseExp(scanner.getNextToken());
+  }
 
+  public Node parseExp(Token inputToken) {
     // TODO: Figure out how to deal with TokenType QUOTE and DOT
     if (inputToken.getType() == Token.LPAREN)
       return parseRest();
-    else if (inputToken.getType() == Token.RPAREN)
-      return this.getNilNode();
     else if (inputToken.getType() == Token.TRUE)
       return this.getTrueNode();
     else if (inputToken.getType() == Token.FALSE)
@@ -59,25 +59,19 @@ class Parser {
       return new StrLit(inputToken.getStrVal());
     else if (inputToken.getType() == Token.IDENT)
       return new Ident(inputToken.getName());
-
-    return null;
-  }
-
-  public Node parseExp(Token inputToken) {
-    
     return null;
   }
   
   protected Node parseRest() {
+    return parseRest(scanner.getNextToken());
+  }
+
+  protected Node parseRest(Token inputToken) {
     // TODO: write code for parsing rest
-    Token inputToken = scanner.getNextToken();
-
     if (inputToken.getType() == Token.RPAREN)
-      return new Nil();
+      return getNilNode();
     else
-      return parseExp();
-
-    //return null;
+      return new Cons(parseExp(inputToken), parseRest()); 
   }
   
 
