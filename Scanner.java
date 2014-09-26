@@ -133,24 +133,30 @@ class Scanner {
 
     // Identifiers
     else if (ch >= 'A' && ch <= 'Z') {
-      // TODO: scan an identifier into the buffer
-		do {
-			System.out.println(ch + ('a' - 'A'));
-			try {
-				bite = in.read();
-			} catch (IOException e) {
-				System.err.println("We fail: " + e.getMessage());
-			}
-			ch = (char) bite;
-		} while (ch >= 'a' && ch <= 'z');
+      StringBuilder str = new StringBuilder();
+      str.append(ch);
+  		do {
+  			try {
+  				bite = in.read();
+  			} catch (IOException e) {
+  				System.err.println("We fail: " + e.getMessage());
+  			}
+  			ch = (char) bite;
+        str.append(ch);
+  		} while (ch >= 'a' && ch <= 'z');
       // put the character after the identifier back into the input
-      // in->putback(ch);
-      return new IdentToken(buf.toString());
+      try {
+        in.unread(ch);
+      } catch (IOException e) {
+        System.err.println("We fail: " + e.getMessage());
+      }
+
+      return new IdentToken(str.toString());
     }
 
     // Illegal character
     else {
-      System.err.println("Illegal input character '" + (char) ch + '\'');
+      System.err.println("Illegal input character " + (char) ch);
       return getNextToken();
     }
   };
