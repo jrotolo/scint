@@ -1,36 +1,6 @@
 ************************************************************************************
-*  TODO LIST CSC 4101                     Last Updated: 2014-09-16 12:07:31 -0500  *
-************************************************************************************
-
-Node.java
------------------------------------
-31: implement these in the appropriate subclasses to return TRUE.
-39: Report an error in these default methods and implement them
-
-StrToken.java
------------------------------------
-Nothing to do here!
-
-StrLit.java
------------------------------------
-Nothing to do here!
-
-Cons.java
------------------------------------
-15: Add any helper functions for parseList as appropriate.
-
-Scanner.java
------------------------------------
-76: scan a string into the buffer variable buf
-83: scan the number and convert it to an integer
-93: scan an identifier into the buffer
-
-Cond.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-Regular.java
+*  TODO LIST CSC 4101                     Last Updated: 2014-09-26 15:31:37 -0500  *
+************************************************************************************Begin.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -39,38 +9,29 @@ BooleanLit.java
 -----------------------------------
 Nothing to do here!
 
-Token.java
------------------------------------
-Nothing to do here!
-
-Parser.java
------------------------------------
-42: write code for parsing an exp
-47: write code for parsing rest
-51: Add any additional methods you might need.
-
-Begin.java
+Cond.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
-IntToken.java
+Cons.java
 -----------------------------------
-Nothing to do here!
+15: Add any helper functions for parseList as appropriate.
 
-Special.java
+Define.java
 -----------------------------------
-Nothing to do here!
-
-Nil.java
------------------------------------
-Nothing to do here!
+5: Add any fields needed.
+8: Add an appropriate constructor.
 
 Ident.java
 -----------------------------------
 Nothing to do here!
 
-Lambda.java
+IdentToken.java
+-----------------------------------
+Nothing to do here!
+
+If.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -79,11 +40,11 @@ IntLit.java
 -----------------------------------
 Nothing to do here!
 
-TokenType.java
+IntToken.java
 -----------------------------------
 Nothing to do here!
 
-If.java
+Lambda.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -93,26 +54,61 @@ Let.java
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
+Main.java
+-----------------------------------
+Nothing to do here!
+
+Nil.java
+-----------------------------------
+Nothing to do here!
+
+Node.java
+-----------------------------------
+31: implement these in the appropriate subclasses to return TRUE.
+39: Report an error in these default methods and implement them
+
+Parser.java
+-----------------------------------
+42: write code for parsing an exp
+47: write code for parsing rest
+51: Add any additional methods you might need.
+
 Quote.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
-Define.java
+Regular.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
+
+Scanner.java
+-----------------------------------
+Nothing to do here!
 
 Set.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
-IdentToken.java
+Special.java
 -----------------------------------
 Nothing to do here!
 
-Main.java
+StrLit.java
+-----------------------------------
+Nothing to do here!
+
+StrToken.java
+-----------------------------------
+Nothing to do here!
+
+Token.java
+-----------------------------------
+Nothing to do here!
+
+TokenType.java
 -----------------------------------
 Nothing to do here!
 

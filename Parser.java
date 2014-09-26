@@ -40,6 +40,24 @@ class Parser {
   
   public Node parseExp() {
     // TODO: write code for parsing an exp
+    Token inputToken = scanner.getNextToken();
+
+    // TODO: Figure out how to deal with TokenType QUOTE and DOT
+    if (inputToken.getType() == Token.LPAREN)
+      parseRest();
+    else if (inputToken.getType() == Token.RPAREN)
+      return new Nil();
+    else if (inputToken.getType() == Token.TRUE)
+      return new BooleanLit(true);
+    else if (inputToken.getType() == Token.FALSE)
+      return new BooleanLit(false);
+    else if (inputToken.getType() == Token.INT)
+      return new IntLit(inputToken.getIntVal());
+    else if (inputToken.getType() == Token.STRING)
+      return new StrLit(inputToken.getStrVal());
+    else if (inputToken.getType() == Token.IDENT)
+      return new Ident(inputToken.getName());
+
     return null;
   }
   
