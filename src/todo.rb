@@ -11,7 +11,7 @@ def extract_todo inputFile, outputFile
 			count += 1
 		end
 	end
-		
+
 	if (count == 0)
 		outputFile.puts "Nothing to do here!"
 	end
@@ -19,9 +19,9 @@ end
 
 def print_header outputFile
 	time = Time.new
-	outputFile.puts "************************************************************************************"
+	outputFile.puts "*********************************************************************************"
 	outputFile.puts "*  TODO LIST CSC 4101                     Last Updated: #{time}  *"
-	outputFile.print "************************************************************************************"
+	outputFile.puts "********************************************************************************"
 end
 
 outputFile = File.open("todo.txt", "w")
@@ -36,7 +36,7 @@ Dir.foreach(filePath) do |item|
 
 		outputFile.puts fileName
 		outputFile.puts "-----------------------------------"
-		
+
 		extract_todo inputFile, outputFile
 
 		outputFile.puts

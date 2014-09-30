@@ -1,79 +1,28 @@
-************************************************************************************
-*  TODO LIST CSC 4101                     Last Updated: 2014-09-26 15:31:37 -0500  *
-************************************************************************************Begin.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-BooleanLit.java
------------------------------------
-Nothing to do here!
-
-Cond.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-Cons.java
------------------------------------
-15: Add any helper functions for parseList as appropriate.
-
-Define.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-Ident.java
------------------------------------
-Nothing to do here!
-
-IdentToken.java
------------------------------------
-Nothing to do here!
-
-If.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-IntLit.java
------------------------------------
-Nothing to do here!
-
-IntToken.java
------------------------------------
-Nothing to do here!
-
-Lambda.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-Let.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-Main.java
------------------------------------
-Nothing to do here!
-
-Nil.java
------------------------------------
-Nothing to do here!
-
+*********************************************************************************
+*  TODO LIST CSC 4101                     Last Updated: 2014-09-30 17:45:52 -0500  *
+********************************************************************************
 Node.java
 -----------------------------------
 31: implement these in the appropriate subclasses to return TRUE.
 39: Report an error in these default methods and implement them
 
-Parser.java
+StrToken.java
 -----------------------------------
-42: write code for parsing an exp
-47: write code for parsing rest
-51: Add any additional methods you might need.
+Nothing to do here!
 
-Quote.java
+StrLit.java
+-----------------------------------
+Nothing to do here!
+
+Cons.java
+-----------------------------------
+15: Add any helper functions for parseList as appropriate.
+
+Scanner.java
+-----------------------------------
+Nothing to do here!
+
+Cond.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -83,24 +32,7 @@ Regular.java
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
-Scanner.java
------------------------------------
-Nothing to do here!
-
-Set.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-Special.java
------------------------------------
-Nothing to do here!
-
-StrLit.java
------------------------------------
-Nothing to do here!
-
-StrToken.java
+BooleanLit.java
 -----------------------------------
 Nothing to do here!
 
@@ -108,7 +40,75 @@ Token.java
 -----------------------------------
 Nothing to do here!
 
+Parser.java
+-----------------------------------
+49: Figure out how to deal with TokenType QUOTE and DOT
+70: write code for parsing DOT and QUOTE
+
+Begin.java
+-----------------------------------
+5: Add any fields needed.
+8: Add an appropriate constructor.
+
+IntToken.java
+-----------------------------------
+Nothing to do here!
+
+Special.java
+-----------------------------------
+Nothing to do here!
+
+Nil.java
+-----------------------------------
+Nothing to do here!
+
+Ident.java
+-----------------------------------
+Nothing to do here!
+
+Lambda.java
+-----------------------------------
+5: Add any fields needed.
+8: Add an appropriate constructor.
+
+IntLit.java
+-----------------------------------
+Nothing to do here!
+
 TokenType.java
+-----------------------------------
+Nothing to do here!
+
+If.java
+-----------------------------------
+5: Add any fields needed.
+8: Add an appropriate constructor.
+
+Let.java
+-----------------------------------
+5: Add any fields needed.
+8: Add an appropriate constructor.
+
+Quote.java
+-----------------------------------
+5: Add any fields needed.
+8: Add an appropriate constructor.
+
+Define.java
+-----------------------------------
+5: Add any fields needed.
+8: Add an appropriate constructor.
+
+Set.java
+-----------------------------------
+5: Add any fields needed.
+8: Add an appropriate constructor.
+
+IdentToken.java
+-----------------------------------
+Nothing to do here!
+
+Main.java
 -----------------------------------
 Nothing to do here!
 
