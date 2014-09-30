@@ -1,2 +1,2 @@
 Scheme Interperter in Java
-Jarrod Rotolo and Caleb Leger 
+By: Jarrod Rotolo and Caleb Leger 
