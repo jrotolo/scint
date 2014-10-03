@@ -51,7 +51,6 @@ public class Main {
 
 	// Parse and pretty-print each input expression
 	root = parser.parseExp();
-  System.out.println(root);
 	while (root != null) {
 	    root.print(0);
 	    root = parser.parseExp();
