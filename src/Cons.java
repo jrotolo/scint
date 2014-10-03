@@ -22,6 +22,31 @@ class Cons extends Node {
     	parseList();
     }
 
+	 public Node getCar() {
+		if (this.car != null)
+	 		return this.car;
+		else
+			System.err.println("Nothing in car!");
+		return null;
+	 }
+
+	 public Node getCdr() {
+		if (this.cdr != null)
+			return this.cdr;
+		else
+			System.err.println("Nothing in cdr!");
+    	return null; 
+	 }
+
+	 public void setCar(Node a) {
+	 	this.car = a;
+		parseList();
+	 }
+
+	 public void setCdr(Node d) {
+	 	this.cdr = d;
+	 }
+
     void print(int n) {
 	   form.print(this, n, false);
     }
