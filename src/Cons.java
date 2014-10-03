@@ -29,5 +29,9 @@ class Cons extends Node {
     void print(int n, boolean p) {
 	   form.print(this, n, p);
     }
+	 
+	 public boolean isPair() {
+	 	return true;	 
+	 }
 
 }

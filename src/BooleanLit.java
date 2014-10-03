@@ -17,4 +17,10 @@ class BooleanLit extends Node {
       System.out.println("#f");
     }
   }
+
+  public boolean isBoolean() {
+  		return true; 
+  }
+
+
 }

@@ -10,4 +10,8 @@ class StrLit extends Node {
 
     System.out.println("\"" + strVal + "\"");
   }
+
+  public isString() {
+  	return true;
+  }
 }

@@ -13,4 +13,8 @@ class Nil extends Node {
       System.out.println("()");
     }
   }
+
+  public boolean isNull() {
+ 		return true; 
+  }
 }
