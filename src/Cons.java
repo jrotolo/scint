@@ -12,6 +12,7 @@ class Cons extends Node {
     // object from the Special hierarchy and to leave the rest of
     // parsing up to the interpreter.
     void parseList() {
+	 	System.out.println(this.print(0, false));
     }
     // TODO: Add any helper functions for parseList as appropriate.
 

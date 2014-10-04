@@ -31,8 +31,7 @@
 // If EOF is reached (i.e., if the scanner returns a NULL) token,
 // the parser returns a NULL tree.  In case of a parse error, the
 // parser discards the offending token (which probably was a DOT
-// or an RPAREN) and attempts to continue parsing with the next token.
-
+// or an RPAREN) and attempts to continue parsing with the next token.  
 class Parser {
  	private Scanner scanner;
  	private Node nilNode;
