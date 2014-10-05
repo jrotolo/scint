@@ -12,8 +12,43 @@ class Cons extends Node {
     // object from the Special hierarchy and to leave the rest of
     // parsing up to the interpreter.
     void parseList(Node a) {
+	 	if (isRegular(a))
+			form = new Regular(a);
+		else
+			form = parseSpecial(a);
     }
-    // TODO: Add any helper functions for parseList as appropriate.
+	
+	 private boolean isRegular(Node n) {
+	 	if (n instanceof StrLit || n instanceof IntLit || n instanceof BooleanLit
+			|| n instanceof Nil || n instanceof Cons)
+			return true;
+		else
+			return false;
+	 }
+
+	 private Special parseSpecial(Node n) {
+	 	Ident i = (Ident)n;
+		String identName = i.getName();
+
+		if (identName.equals("quote"))
+			return new Quote();
+		else if (identName.equals("lambda"))
+			return new Lambda();
+		else if (identName.equals("begin"))
+			return new Begin();
+		else if (identName.equals("if"))
+			return new If();
+		else if (identName.equals("cond"))
+			return new Cond();
+		else if (identName.equals("let"))
+			return new Let();
+		else if (identName.equals("define"))
+			return new Define();
+		else if (identName.equals("set!"))
+			return new Set();
+		else
+			return new Regular(n);
+	 }
 
     public Cons(Node a, Node d) {
     	car = a;

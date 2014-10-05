@@ -46,20 +46,20 @@ class Parser {
 
  	public Node parseExp(Token inputToken) {
 		// TODO: Figure out how to deal with TokenType QUOTE and DOT
-		if (inputToken.getType() == Token.LPAREN)
+		if (inputToken.getType() == TokenType.LPAREN)
 	 		return parseRest();
-		else if (inputToken.getType() == Token.TRUE)
+		else if (inputToken.getType() == TokenType.TRUE)
 	 		return this.getTrueNode();
-		else if (inputToken.getType() == Token.FALSE)
+		else if (inputToken.getType() == TokenType.FALSE)
 	 		return this.getFalseNode();
-		else if (inputToken.getType() == Token.INT)
+		else if (inputToken.getType() == TokenType.INT)
 	 		return new IntLit(inputToken.getIntVal());
-		else if (inputToken.getType() == Token.STRING)
+		else if (inputToken.getType() == TokenType.STRING)
 	 		return new StrLit(inputToken.getStrVal());
-		else if (inputToken.getType() == Token.IDENT)
+		else if (inputToken.getType() == TokenType.IDENT)
 	 		return new Ident(inputToken.getName());
-		else if (inputToken.getType() == Token.QUOTE)
-			return new Cons(new Ident("quote"), new Cons(parseExp(), getNilNode()));
+		else if (inputToken.getType() == TokenType.QUOTE)
+			return new Cons(new Ident("quote"), new Cons(parseExp(), this.getNilNode()));
 		return null;
  	}
   
@@ -69,7 +69,7 @@ class Parser {
 
 	protected Node parseRest(Token inputToken) {
 		// TODO: write code for parsing DOT and QUOTE
-		if (inputToken.getType() == Token.RPAREN)
+		if (inputToken.getType() == TokenType.RPAREN)
 	  		return getNilNode();
 		else
 	  		return new Cons(parseExp(inputToken), parseRest()); 
