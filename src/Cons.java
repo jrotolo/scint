@@ -11,15 +11,14 @@ class Cons extends Node {
     // parseList only look at the car for selecting the appropriate
     // object from the Special hierarchy and to leave the rest of
     // parsing up to the interpreter.
-    void parseList() {
-	 	System.out.println(this.print(0, false));
+    void parseList(Node a) {
     }
     // TODO: Add any helper functions for parseList as appropriate.
 
     public Cons(Node a, Node d) {
     	car = a;
     	cdr = d;
-    	parseList();
+    	parseList(car);
     }
 
 	 public Node getCar() {
@@ -40,7 +39,7 @@ class Cons extends Node {
 
 	 public void setCar(Node a) {
 	 	this.car = a;
-		parseList();
+		parseList(a);
 	 }
 
 	 public void setCdr(Node d) {

@@ -26,8 +26,9 @@ class Scanner {
 			return null;
 
 		char ch = (char) bite;
-
-		if (ch == ' ' || ch == '\n') {
+		
+		// Skip whitspace and comments
+		if (ch == ' ' || ch == '\n' || ch =='\t') {
 			return getNextToken();
 		} 
 		else if (ch == ';') {
@@ -133,7 +134,7 @@ class Scanner {
 		}
 
 		// Identifiers
-		else if (ch >= 'A' && ch <= 'Z') {
+		else if (ch >= 'A' && ch <= 'z') {
 			StringBuilder str = new StringBuilder();
 			str.append(ch);
 			do {
@@ -144,13 +145,16 @@ class Scanner {
 				  }
 				ch = (char) bite;
 				str.append(ch);
-			} while (ch >= 'a' && ch <= 'z');
+			} while (ch >= 'a' && ch <= 'z'); 
+			
+			str.deleteCharAt(str.length() - 1);
+
 		  // put the character after the identifier back into the input
 		  try {
 			in.unread(ch);
 		  } catch (IOException e) {
 				System.err.println("We fail: " + e.getMessage());
-		    }
+		  }
 
 			return new IdentToken(str.toString());
 		}
