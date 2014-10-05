@@ -23,6 +23,11 @@ class Node {
   void print(int n, boolean p) {
     print(n);
   }
+  
+  void indent(int n) {
+  	for (int i=0; i<n; i++)
+		System.out.print(" ");
+  }
 
   // For parsing Cons nodes, for printing trees, and later for
   // evaluating them, we need some helper functions that test
