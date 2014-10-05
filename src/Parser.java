@@ -58,6 +58,8 @@ class Parser {
 	 		return new StrLit(inputToken.getStrVal());
 		else if (inputToken.getType() == Token.IDENT)
 	 		return new Ident(inputToken.getName());
+		else if (inputToken.getType() == Token.QUOTE)
+			return new Cons(new Ident("quote"), new Cons(parseExp(), getNilNode()));
 		return null;
  	}
   
