@@ -51,11 +51,10 @@ public class Main {
 
 	// Parse and pretty-print each input expression
 	root = parser.parseExp();
-	root.print(0);
-//	while (root != null) {
-//	    root.print(0);
-//	    root = parser.parseExp();
-//	}
+	while (root != null) {
+	    root.print(0);
+	    root = parser.parseExp();
+	}
 	System.exit(0);
     }
 }

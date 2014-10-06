@@ -64,17 +64,15 @@ class Parser {
  	}
   
 	protected Node parseRest() {
-		return parseRest(scanner.getNextToken());
-  	}
+		Token inputToken = scanner.getNextToken();
 
-	protected Node parseRest(Token inputToken) {
-		// TODO: write code for parsing DOT and QUOTE
-		if (inputToken.getType() == TokenType.RPAREN)
-	  		return getNilNode();
+		if (inputToken.getType() == TokenType.DOT)
+			return new Cons(parseExp(), parseRest());
+		else if (inputToken.getType() == TokenType.RPAREN)
+			return getNilNode();
 		else
-	  		return new Cons(parseExp(inputToken), parseRest()); 
+			return new Cons(parseExp(inputToken), parseRest());
   	}
-  
 
 	// Methods for singleton node objects
 	public Node getNilNode() {

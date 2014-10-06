@@ -3,7 +3,7 @@ import java.io.*;
 class Node {
   // The argument of print(int) is the number of characters to indent.
   // Every subclass of Node must implement print(int).
-  void print(int n) {}
+  void print(int n) { System.out.println("In Node.java");}
 
   // The first argument of print(int, boolean) is the number of characters
   // to indent.  It is interpreted the same as for print(int).

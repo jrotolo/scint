@@ -3,6 +3,13 @@ class Cons extends Node {
     private Node cdr;
     private Special form;
 
+
+    public Cons(Node a, Node d) {
+    	car = a;
+    	cdr = d;
+    	parseList(car);
+	 }
+
     // parseList() `parses' special forms, constructs an appropriate
     // object of a subclass of Special, and stores a pointer to that
     // object in variable form.  It would be possible to fully parse
@@ -17,13 +24,10 @@ class Cons extends Node {
 		else
 			form = parseSpecial(a);
     }
-	
+
 	 private boolean isRegular(Node n) {
-	 	if (n instanceof StrLit || n instanceof IntLit || n instanceof BooleanLit
-			|| n instanceof Nil || n instanceof Cons)
-			return true;
-		else
-			return false;
+	 	return (n instanceof StrLit || n instanceof IntLit || n instanceof BooleanLit
+			|| n instanceof Nil || n instanceof Cons);
 	 }
 
 	 private Special parseSpecial(Node n) {
@@ -50,11 +54,6 @@ class Cons extends Node {
 			return new Regular(n);
 	 }
 
-    public Cons(Node a, Node d) {
-    	car = a;
-    	cdr = d;
-    	parseList(car);
-    }
 
 	 public Node getCar() {
 		if (this.car != null)
@@ -69,7 +68,7 @@ class Cons extends Node {
 			return this.cdr;
 		else
 			System.err.println("Nothing in cdr!");
-    	return null; 
+    	return null;
 	 }
 
 	 public void setCar(Node a) {
@@ -86,11 +85,12 @@ class Cons extends Node {
     }
 
     void print(int n, boolean p) {
-	   form.print(this, n, p);
+	   //form.print(this, n, p);
+       form.print(0);
     }
-	 
+
 	 public boolean isPair() {
-	 	return true;	 
+	 	return true;
 	 }
 
 }
