@@ -9,18 +9,21 @@ class Regular extends Special {
 	 public Regular(Node node) {
 	 	n = node;
 		System.out.println("Regular Node Made");
-		n.print(1);
+		//n.print(1);
 	 }
 
     void print(Node t, int n, boolean p) {
 //	 	indent(n);
 		//t.print(n, p);
 		//System.out.println("In print(t,n,p) of regular.java ");
-		//t.getCar().print(0);
+		if (!p)
+			System.out.print("(");
+		t.getCar().print(0);
+		t.getCdr().print(1, true);
     }
 
 	 void print(int n, boolean p) {
-	 	System.out.println("In Regular.java");
+	 	//System.out.println("In Regular.java");
 	 }
 
 }

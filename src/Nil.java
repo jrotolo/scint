@@ -1,4 +1,6 @@
 import java.io.*;
+import java.lang.String;
+
 class Nil extends Node {
   public Nil() { }
 
