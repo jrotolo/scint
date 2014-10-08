@@ -56,4 +56,8 @@ class Node {
   
   public void setCdr(Node d) {
   }
+  
+  public String getName() {
+  	return ""; 
+  }
 }

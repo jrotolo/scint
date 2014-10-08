@@ -19,41 +19,21 @@ class Cons extends Node {
     // object from the Special hierarchy and to leave the rest of
     // parsing up to the interpreter.
     void parseList(Node a) {
-	 	if (isRegular(a))
-			form = new Regular(a);
-		else
-			form = parseSpecial(a);
+		if (car.isSymbol()) {
+	   	String name = car.getName();
+			if (name == "quote") form = new Quote();
+			else if (name == "lambda") form = new Lambda();
+			else if (name == "begin") form = new Begin();
+			else if (name == "if") form = new If();
+			else if (name == "let") form = new Let();
+			else if (name == "cond") form = new Cond();
+			else if (name == "define") form = new Define();
+			else if (name == "set!") form = new Set();
+			else form = new Regular();
+		} else {
+	   	form = new Regular();	
+		}
     }
-
-	 private boolean isRegular(Node n) {
-	 	return (n instanceof StrLit || n instanceof IntLit || n instanceof BooleanLit
-			|| n instanceof Nil || n instanceof Cons);
-	 }
-
-	 private Special parseSpecial(Node n) {
-	 	Ident i = (Ident)n;
-		String identName = i.getName();
-
-		if (identName.equals("quote"))
-			return new Quote();
-		else if (identName.equals("lambda"))
-			return new Lambda();
-		else if (identName.equals("begin"))
-			return new Begin();
-		else if (identName.equals("if"))
-			return new If();
-		else if (identName.equals("cond"))
-			return new Cond();
-		else if (identName.equals("let"))
-			return new Let();
-		else if (identName.equals("define"))
-			return new Define();
-		else if (identName.equals("set!"))
-			return new Set();
-		else
-			return new Regular(n);
-	 }
-
 
 	 public Node getCar() {
 		if (this.car != null)
