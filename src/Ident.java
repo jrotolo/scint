@@ -2,7 +2,7 @@ import java.io.*;
 class Ident extends Node {
   private String name;
 
-  public Ident(String n) { name = n; System.out.println("Ident made"); }
+  public Ident(String n) { name = n; }
   
   public String getName() {
   	return name; 
