@@ -10,10 +10,11 @@ class Define extends Special {
 	 	System.out.println("Define node made"); 
 	 }
 
+
     void print(Node t, int n, boolean p) {
 		if (!p)
 			System.out.print("(");
 		t.getCar().print(0);
-		t.getCdr().print(1, true);
+		t.getCdr().print(0, true);
     }
 }

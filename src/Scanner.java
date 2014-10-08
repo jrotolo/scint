@@ -159,7 +159,7 @@ class Scanner {
 			return new IdentToken(str.toString());
 		}
 
-		else if (ch == '+' || ch == '-' || ch == '/' || ch == '*') {
+		else if (ch == '+' || ch == '-' || ch == '/' || ch == '*' || ch == '=') {
 			return new IdentToken(Character.toString(ch));
 		}
 

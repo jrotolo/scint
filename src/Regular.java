@@ -19,7 +19,7 @@ class Regular extends Special {
 		if (!p)
 			System.out.print("(");
 		t.getCar().print(0);
-		t.getCdr().print(1, true);
+		t.getCdr().print(0, true);
     }
 
 	 void print(int n, boolean p) {

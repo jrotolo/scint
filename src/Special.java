@@ -10,7 +10,6 @@ abstract class Special {
     abstract void print(Node t, int n, boolean p);
     void print(int n) {}
 	 public void indent(int n) {
-	 	System.out.println("In Special.java");
 	 	for (int i=0; i<n; i++)
 			System.out.print(" ");
 	 }
