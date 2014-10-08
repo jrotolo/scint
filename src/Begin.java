@@ -13,6 +13,7 @@ class Begin extends Special {
     void print(Node t, int n, boolean p) {
     	System.out.println("(begin");
     	Node cdr = t.getCdr();
+		indent(1);
     	if (cdr != null)
     		cdr.print(n, p);
     	System.out.println("");

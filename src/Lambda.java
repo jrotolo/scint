@@ -12,6 +12,7 @@ class Lambda extends Special {
 
     void print(Node t, int n, boolean p) {
 	 	t.getCar().print(0);
+		indent(1);
 		t.getCdr().print(0, true);
     }
 }

@@ -17,7 +17,6 @@ class Ident extends Node {
 
   public void print(int n, boolean p) {
   	System.out.println(name);
-	indent(1);
   }
 
   public boolean isSymbol() {
