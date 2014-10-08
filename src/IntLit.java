@@ -8,7 +8,8 @@ class IntLit extends Node {
     for (int i = 0; i < n; i++)
       System.out.print(" ");
 
-    System.out.print(intVal+" ");
+    System.out.print(intVal);
+	 indent(1);
   }
 
   public void print(Node t, int n, boolean p) {

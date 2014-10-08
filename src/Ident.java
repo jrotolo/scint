@@ -12,11 +12,13 @@ class Ident extends Node {
     for (int i = 0; i < n; i++)
       System.out.print(" ");
 	 
-    	System.out.print(name+" ");
+    System.out.print(name);
+	 indent(1);
   }
 
   public void print(int n, boolean p) {
-  	System.out.println(name); 
+  	System.out.println(name);
+	indent(1);
   }
 
   public boolean isSymbol() {
