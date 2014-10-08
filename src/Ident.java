@@ -13,7 +13,6 @@ class Ident extends Node {
       System.out.print(" ");
 	 
     System.out.print(name);
-	 indent(1);
   }
 
   public void print(int n, boolean p) {

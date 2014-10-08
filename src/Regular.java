@@ -19,6 +19,8 @@ class Regular extends Special {
 		if (!p)
 			System.out.print("(");
 		t.getCar().print(0);
+	   if (!(t.getCdr().isNull()))	
+			indent(1);
 		t.getCdr().print(0, true);
     }
 

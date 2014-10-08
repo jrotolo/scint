@@ -15,6 +15,7 @@ class Define extends Special {
 		if (!p)
 			System.out.print("(");
 		t.getCar().print(0);
+		indent(1);
 		t.getCdr().print(0, true);
     }
 }
