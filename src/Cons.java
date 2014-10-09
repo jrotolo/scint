@@ -8,7 +8,7 @@ class Cons extends Node {
     	car = a;
     	cdr = d;
     	parseList(car);
-	 }
+	}
 
     // parseList() `parses' special forms, constructs an appropriate
     // object of a subclass of Special, and stores a pointer to that
@@ -30,47 +30,48 @@ class Cons extends Node {
 			else if (name == "define") form = new Define();
 			else if (name == "set!") form = new Set();
 			else form = new Regular();
-		} else {
-	   	form = new Regular();	
+		} 
+		else {
+	   		form = new Regular();	
 		}
     }
 
-	 public Node getCar() {
+	public Node getCar() {
 		if (this.car != null)
 	 		return this.car;
 		else
 			System.err.println("Nothing in car!");
 		return null;
-	 }
+	}
 
-	 public Node getCdr() {
+	public Node getCdr() {
 		if (this.cdr != null)
 			return this.cdr;
 		else
 			System.err.println("Nothing in cdr!");
     	return null;
-	 }
+	}
 
-	 public void setCar(Node a) {
-	 	this.car = a;
+	public void setCar(Node a) {
+		this.car = a;
 		parseList(a);
-	 }
+	}
 
-	 public void setCdr(Node d) {
-	 	this.cdr = d;
-	 }
+	public void setCdr(Node d) {
+		this.cdr = d;
+	}
 
     void print(int n) {
-	   form.print(this, n, false);
+		form.print(this, n, false);
     }
 
     void print(int n, boolean p) {
-	   form.print(this, n, p);
-       //form.print(0);
+		form.print(this, n, p);
+    	//form.print(0);
     }
 
-	 public boolean isPair() {
-	 	return true;
-	 }
+	public boolean isPair() {
+		return true;
+	}
 
 }

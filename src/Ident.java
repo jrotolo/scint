@@ -1,25 +1,25 @@
 import java.io.*;
 class Ident extends Node {
-  private String name;
+	private String name;
 
-  public Ident(String n) { name = n; System.out.println("Ident made"); }
+	public Ident(String n) { name = n; System.out.println("Ident made"); }
   
-  public String getName() {
-  	return name; 
-  }
+	public String getName() {
+		return name; 
+	}
 
-  public void print(int n) {
-    for (int i = 0; i < n; i++)
-      System.out.print(" ");
+	public void print(int n) {
+    	for (int i = 0; i < n; i++)
+    		System.out.print(" ");
 	 
-    System.out.print(name);
-  }
+    	System.out.print(name);
+	}
 
-  public void print(int n, boolean p) {
-  	System.out.println(name);
-  }
+	public void print(int n, boolean p) {
+  		System.out.println(name);
+  	}
 
-  public boolean isSymbol() {
+  	public boolean isSymbol() {
  		return true; 
-  }
+  	}
 }

@@ -6,9 +6,9 @@ class Quote extends Special {
 
  
     // TODO: Add an appropriate constructor.
-	 public Quote() {
-	 	System.out.println("Quote node made"); 
-	 }
+	public Quote() {
+		System.out.println("Quote node made"); 
+	}
 
     void print(Node t, int n, boolean p) {
 		if (!p)
@@ -17,5 +17,5 @@ class Quote extends Special {
     	t.getCar().print(0); 
 		indent(1);
 		t.getCdr().print(0, true);
-	 }
+	}
 }

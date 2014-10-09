@@ -1,24 +1,24 @@
 import java.io.*;
 class IntLit extends Node {
-  private int intVal;
+	private int intVal;
 
-  public IntLit(int i) { intVal = i; System.out.println("IntVal made");}
+  	public IntLit(int i) { intVal = i; System.out.println("IntVal made");}
 
-  public void print(int n) {
-    for (int i = 0; i < n; i++)
-      System.out.print(" ");
+  	public void print(int n) {
+    	for (int i = 0; i < n; i++)
+      		System.out.print(" ");
 	
-    System.out.print(intVal);
-  }
+    	System.out.print(intVal);
+  	}
 
-  public void print(Node t, int n, boolean p) {
-    for (int i = 0; i < n; i++)
-      System.out.print(" ");
+  	public void print(Node t, int n, boolean p) {
+    	for (int i = 0; i < n; i++)
+      		System.out.print(" ");
 
-    t.getCar().print(0);
-  }
+    	t.getCar().print(0);
+  	}
 
-  public boolean isNumber() {
+  	public boolean isNumber() {
 		return true;
-  }
+  	}
 }

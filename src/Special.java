@@ -9,10 +9,10 @@ import java.io.*;
 abstract class Special {
     abstract void print(Node t, int n, boolean p);
     
-	 void print(int n) {}
+	void print(int n) {}
 	 
-	 public void indent(int n) {
-	 	for (int i=0; i<n; i++)
+	public void indent(int n) {
+		for (int i=0; i<n; i++)
 			System.out.print(" ");
-	 }
+	}
 }

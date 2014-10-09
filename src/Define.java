@@ -6,9 +6,9 @@ class Define extends Special {
 
  
     // TODO: Add an appropriate constructor.
-	 public Define() {
-	 	System.out.println("Define node made"); 
-	 }
+	public Define() {
+		System.out.println("Define node made"); 
+	}
 
 
     void print(Node t, int n, boolean p) {
