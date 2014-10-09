@@ -7,11 +7,11 @@ class Begin extends Special {
  
     // TODO: Add an appropriate constructor.
 	 public Begin() {
-	 	System.out.println("Begin node made"); 
 	 }
 
     void print(Node t, int n, boolean p) {
     	System.out.println("(begin");
+		System.out.println("here");
     	Node cdr = t.getCdr();
 		indent(1);
     	if (cdr != null)
