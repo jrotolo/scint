@@ -21,14 +21,14 @@ class Cons extends Node {
     void parseList(Node a) {
 		if (car.isSymbol()) {
 	   	String name = car.getName();
-			if (name == "quote") form = new Quote();
-			else if (name == "lambda") form = new Lambda();
-			else if (name == "begin") form = new Begin();
-			else if (name == "if") form = new If();
-			else if (name == "let") form = new Let();
-			else if (name == "cond") form = new Cond();
-			else if (name == "define") form = new Define();
-			else if (name == "set!") form = new Set();
+			if (name.equals("quote")) form = new Quote();
+			else if (name.equals("lambda")) form = new Lambda();
+			else if (name.equals("begin")) form = new Begin();
+			else if (name.equals("if")) form = new If();
+			else if (name.equals("let")) form = new Let();
+			else if (name.equals("cond")) form = new Cond();
+			else if (name.equals("define")) form = new Define();
+			else if (name.equals("set!")) form = new Set();
 			else form = new Regular();
 		} else {
 	   	form = new Regular();	

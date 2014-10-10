@@ -12,7 +12,6 @@ class Define extends Special {
 
 
     void print(Node t, int n, boolean p) {
-	   System.out.println("Here!");
 		if (!p)
 			System.out.print("(");
 		t.getCar().print(0);
