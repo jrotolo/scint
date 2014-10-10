@@ -154,7 +154,7 @@ class Scanner {
 			in.unread(ch);
 		  } catch (IOException e) {
 				System.err.println("We fail: " + e.getMessage());
-		  }
+		  	}
 
 			return new IdentToken(str.toString());
 		}
