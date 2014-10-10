@@ -7,7 +7,6 @@ class Quote extends Special {
  
     // TODO: Add an appropriate constructor.
 	 public Quote() {
-	 	System.out.println("Quote node made"); 
 	 }
 
     void print(Node t, int n, boolean p) {
