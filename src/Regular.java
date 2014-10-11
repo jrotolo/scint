@@ -9,8 +9,12 @@ class Regular extends Special {
 	 }
 
     void print(Node t, int n, boolean p) {
+	 	for (int i = 0; i < n; i++)
+			System.out.print(' ');
+
 		if (!p)
 			System.out.print("(");
+
 		t.getCar().print(0);
 	   if (!(t.getCdr().isNull()))	
 			indent(1);

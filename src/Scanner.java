@@ -134,7 +134,7 @@ class Scanner {
 		}
 
 		// Identifiers
-		else if (ch >= 'A' && ch <= 'z') {
+		else if (ch >= 'A' && ch <= 'z' || ch == '!') {
 			StringBuilder str = new StringBuilder();
 			str.append(ch);
 			do {
@@ -145,7 +145,7 @@ class Scanner {
 				  }
 				ch = (char) bite;
 				str.append(ch);
-			} while (ch >= 'a' && ch <= 'z'); 
+			} while (ch >= 'a' && ch <= 'z' || ch == '!'); 
 			
 			str.deleteCharAt(str.length() - 1);
 

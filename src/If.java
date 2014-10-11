@@ -10,10 +10,28 @@ class If extends Special {
 	 }
 
     void print(Node t, int n, boolean p) {
-	 	if (!p)
-			System.out.print("(");
-		t.getCar().print(0);
-		indent(1);
-		t.getCdr().print(0, true);
+		for (int i = 0; i < n; i++)
+			System.out.print(' ');
+		System.out.print("(if ");
+
+		Node cadr = t.getCdr().getCar();
+		if (cadr.isPair())
+			cadr.print(0, p);
+		
+		System.out.println();
+
+		Node caddr = t.getCdr().getCdr().getCar();
+		if (!caddr.isNull()) {
+			//indent(4);
+			caddr.print(n + 4, p);
+		}
+		
+		Node cadddr = t.getCdr().getCdr().getCdr().getCar();
+		if (!cadddr.isNull()) {
+			System.out.println();
+			//indent(4);
+			cadddr.print(n + 4, p);
+		}
+		System.out.println();
     }
 }

@@ -10,11 +10,15 @@ class Set extends Special {
 	 }
 
     void print(Node t, int n, boolean p) {
-	 	if (!p)
+		if (!p)
 			System.out.print("(");
-		t.getCar().print(0);
+		t.getCar().print(n);
 		indent(1);
-		t.getCdr().print(0, true);
+		if (!t.getCdr().isNull()) {
+			t.getCdr().print(n, true);
+		 } else
+			System.out.print(")");
+		System.out.println();
 
     }
 }

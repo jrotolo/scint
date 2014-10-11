@@ -36,16 +36,16 @@ class Cons extends Node {
     }
 
 	 public Node getCar() {
-		if (this.car != null)
-	 		return this.car;
+		if (car != null)
+	 		return car;
 		else
 			System.err.println("Nothing in car!");
 		return null;
 	 }
 
 	 public Node getCdr() {
-		if (this.cdr != null)
-			return this.cdr;
+		if (cdr != null)
+			return cdr;
 		else
 			System.err.println("Nothing in cdr!");
     	return null;
