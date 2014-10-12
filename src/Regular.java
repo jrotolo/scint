@@ -1,10 +1,7 @@
 import java.io.*;
 
 class Regular extends Special {
-    // TODO: Add any fields needed.
 
-
-    // TODO: Add an appropriate constructor.
 	 public Regular() {
 	 }
 
@@ -16,9 +13,12 @@ class Regular extends Special {
 			System.out.print("(");
 
 		t.getCar().print(0);
-	   if (!(t.getCdr().isNull()))	
+	   if (!t.getCdr().isNull()) {	
 			indent(1);
-		t.getCdr().print(0, true);
+			t.getCdr().print(0, true);
+		} else  {
+			t.getCdr().print(0, false, true);
+		}
     }
 
 	 void print(int n, boolean p) {

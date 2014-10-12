@@ -15,6 +15,11 @@ class Nil extends Node {
       System.out.print("()");
     }
   }
+  
+  public void print(int n, boolean p, boolean printNewLine) {
+     System.out.print(")");
+	  System.out.println();
+  }
 
   public boolean isNull() {
  		return true; 

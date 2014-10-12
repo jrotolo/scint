@@ -2,10 +2,6 @@ import java.io.*;
 
 class If extends Special {
  
-    // TODO: Add any fields needed.
-
- 
-    // TODO: Add an appropriate constructor.
 	 public If() {
 	 }
 
@@ -13,25 +9,26 @@ class If extends Special {
 		for (int i = 0; i < n; i++)
 			System.out.print(' ');
 		System.out.print("(if ");
-
+      
+		// The condition
 		Node cadr = t.getCdr().getCar();
 		if (cadr.isPair())
 			cadr.print(0, p);
 		
-		System.out.println();
-
+		// then clause
 		Node caddr = t.getCdr().getCdr().getCar();
-		if (!caddr.isNull()) {
-			//indent(4);
+		if (!(caddr instanceof Cons)) {
+			caddr.print(n + 4, p);
+			System.out.println();
+		} else if (!caddr.isNull()) {
 			caddr.print(n + 4, p);
 		}
-		
+
+		// else clause
 		Node cadddr = t.getCdr().getCdr().getCdr().getCar();
 		if (!cadddr.isNull()) {
-			System.out.println();
-			//indent(4);
 			cadddr.print(n + 4, p);
-		}
-		System.out.println();
+		} 
+		System.out.println(")");
     }
 }
