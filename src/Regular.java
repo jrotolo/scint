@@ -15,9 +15,9 @@ class Regular extends Special {
 		t.getCar().print(0);
 	   if (!t.getCdr().isNull()) {	
 			indent(1);
-			t.getCdr().print(0, true);
+			t.getCdr().print(n, true);
 		} else  {
-			t.getCdr().print(0, false, true);
+			t.getCdr().print(n, false, true);
 		}
     }
 

@@ -17,17 +17,20 @@ class If extends Special {
 		
 		// then clause
 		Node caddr = t.getCdr().getCdr().getCar();
-		if (!(caddr instanceof Cons)) {
-			caddr.print(n + 4, p);
+		if (!(caddr instanceof Cons) || caddr instanceof Nil) {
+			indent(3);
+			caddr.print(n, p);
 			System.out.println();
 		} else if (!caddr.isNull()) {
-			caddr.print(n + 4, p);
+			indent(3);
+			caddr.print(n, p);
 		}
 
 		// else clause
 		Node cadddr = t.getCdr().getCdr().getCdr().getCar();
 		if (!cadddr.isNull()) {
-			cadddr.print(n + 4, p);
+			indent(3);
+			cadddr.print(n, p);
 		} 
 		System.out.println(")");
     }
