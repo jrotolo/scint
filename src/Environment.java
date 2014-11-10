@@ -72,13 +72,19 @@ class Environment extends Node {
     }
 
     public void define (Node id, Node val) {
-		// TODO: implement this function
+		scope.set(id, val);
     }
 
     public void assign (Node id, Node val) {
-		// TODO: implement this function
-
-		// You can use find() to get a list containing the value and
-		// then update the value using setCar()
+    	// Look for node in scope
+		Node found = scope.find(id);
+    	if (found != null) {
+    		scope.set(id, val);
+    	} else if (found == null && env != null) {
+    		// If node is not found then look in the enclosing scope
+    		env.assign(id, val);
+    	} else {
+    		System.out.println("Undefined assignment");
+    	}
     }
 }
