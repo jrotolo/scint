@@ -1,5 +1,3 @@
-// Special.h -- the parse tree node data structure for special forms
-
 import java.io.*;
 
 // There are several different approaches for how to implement the Special
@@ -8,11 +6,7 @@ import java.io.*;
 
 abstract class Special {
     abstract void print(Node t, int n, boolean p);
-    
-	 void print(int n) {}
-	 
-	 public void indent(int n) {
-	 	for (int i=0; i<n; i++)
-			System.out.print(" ");
-	 }
+ 
+    	
 }
+

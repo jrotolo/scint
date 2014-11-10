@@ -2,20 +2,19 @@ import java.io.*;
 
 class Set extends Special {
  
-	 public Set() {
-	 }
+    // TODO: Add any fields needed.
 
+ 
+    // TODO: Add an appropriate constructor.
+	public Set(Node t){
+
+	}
+	
     void print(Node t, int n, boolean p) {
-		if (!p)
-			System.out.print("(");
-		//t.getCar().print(n);
-		System.out.print("set!");
-		indent(1);
-		if (!t.getCdr().isNull()) {
-			t.getCdr().print(n, true);
-		 } else
-			System.out.print(")");
-//		System.out.println();
+    	Printer.printSet(t, n, p);
+    }
 
+    public Node eval(Node t, Environment env) {
+    	return t;
     }
 }

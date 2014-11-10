@@ -1,25 +1,43 @@
 import java.io.*;
 class BooleanLit extends Node {
   private boolean booleanVal;
-
-  public BooleanLit(boolean b) {
+  private static BooleanLit True=null;
+  private static BooleanLit False=null;
+  
+  private BooleanLit(boolean b) {
     booleanVal = b;
   }
-
-  public void print(int n) {
-    for (int i = 0; i < n; i++)
-      System.out.print(" ");
-    
-    if (booleanVal) {
-      System.out.println("#t");
-    } else {
-      System.out.println("#f");
-    }
+  
+  public static BooleanLit getInstance(boolean val){
+  		if(val==true){
+  			if(True==null)
+  				True=new BooleanLit(true);
+  			return True;
+   		}
+  		else{
+  			if(False==null)
+  				False=new BooleanLit(false);
+  			return False;
+  		}
+  }
+ 
+   public void print(int n) {
+   	
+   	if(booleanVal)
+   		Printer.printBoolLit(n, 1);
+   	else
+   		Printer.printBoolLit(n, 0);
   }
 
-  public boolean isBoolean() {
-  		return true; 
+  public boolean getValue() {
+    return booleanVal;
   }
+  
+  public boolean eval() {
+    return this.getValue();
+  }
+  
 
+  public boolean isBoolean()   { return true; }
 
 }

@@ -5,20 +5,17 @@ class IntLit extends Node {
   public IntLit(int i) { intVal = i; }
 
   public void print(int n) {
-    for (int i = 0; i < n; i++)
-      System.out.print(" ");
-	
-    System.out.print(intVal);
+  	Printer.printIntLit(n, intVal);
   }
 
-  public void print(Node t, int n, boolean p) {
-    for (int i = 0; i < n; i++)
-      System.out.print(" ");
-
-    t.getCar().print(0);
+  public int getValue() {
+  	return intVal;
   }
 
-  public boolean isNumber() {
-		return true;
+  public int eval() {
+  	return this.getValue();
   }
+
+  public boolean isNumber() { return true; }
+
 }

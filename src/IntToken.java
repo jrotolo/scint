@@ -1,4 +1,5 @@
 class IntToken extends Token {
+	
   private int intVal;
 
   public IntToken(int i) {

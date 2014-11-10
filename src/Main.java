@@ -1,10 +1,11 @@
 // Main.java -- the main program
 
 import java.io.*;
+import java.util.*;
 
 public class Main {
     // Array of token names used for debugging the scanner
-    public static final String TokenName[] = {
+    private static final String TokenName[] = {
 	"QUOTE",			// '
 	"LPAREN",			// (
 	"RPAREN",			// )
@@ -17,14 +18,16 @@ public class Main {
     };
 
     public static void main (String argv[]) {
+    	
 	// create scanner that reads from standard input
 	Scanner scanner = new Scanner(System.in);
 
-	if (argv.length > 2) {
-	    System.err.println("Usage: java Main " + "[-d]");
+
+	if (argv.length > 1) {
+	    System.err.println("Usage: java Main [-d]");
 	    System.exit(1);
 	}
-
+	
 	// if commandline option -d is provided, debug the scanner
 	if (argv.length == 1 && argv[0].equals("-d")) {
 	    // debug scanner
@@ -43,13 +46,18 @@ public class Main {
 
 		tok = scanner.getNextToken();
 	    }
+	    System.exit(0);
 	}
-
+	
 	// Create parser
 	Parser parser = new Parser(scanner);
 	Node root;
 
+	// Setup Environment
+	Environment gEnv = new Environment();
+	
 	// Parse and pretty-print each input expression
+	
 	root = parser.parseExp();
 	while (root != null) {
 	    root.print(0);
@@ -57,4 +65,5 @@ public class Main {
 	}
 	System.exit(0);
     }
+    	
 }

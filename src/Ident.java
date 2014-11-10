@@ -3,23 +3,17 @@ class Ident extends Node {
   private String name;
 
   public Ident(String n) { name = n; }
-  
-  public String getName() {
-  	return name; 
-  }
 
   public void print(int n) {
-    for (int i = 0; i < n; i++)
-      System.out.print(" ");
-	 
-    System.out.print(name);
+  	Printer.printIdent(n, name);
+    
   }
 
-  public void print(int n, boolean p) {
-  	System.out.println(name);
+  public Node eval(Environment env) {
+  	return env.lookup(this);
   }
-
-  public boolean isSymbol() {
- 		return true; 
-  }
+  
+  public boolean isSymbol() { return true; }
+  public String getSymbol() { return name; }
+  public String getName() { return name; } 
 }

@@ -1,33 +1,7 @@
 *********************************************************************************
-*  TODO LIST CSC 4101                     Last Updated: 2014-09-30 17:45:52 -0500  *
+*  TODO LIST CSC 4101                     Last Updated: 2014-11-08 21:23:01 -0600  *
 ********************************************************************************
-Node.java
------------------------------------
-31: implement these in the appropriate subclasses to return TRUE.
-39: Report an error in these default methods and implement them
-
-StrToken.java
------------------------------------
-Nothing to do here!
-
-StrLit.java
------------------------------------
-Nothing to do here!
-
-Cons.java
------------------------------------
-15: Add any helper functions for parseList as appropriate.
-
-Scanner.java
------------------------------------
-Nothing to do here!
-
-Cond.java
------------------------------------
-5: Add any fields needed.
-8: Add an appropriate constructor.
-
-Regular.java
+Begin.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -36,37 +10,44 @@ BooleanLit.java
 -----------------------------------
 Nothing to do here!
 
-Token.java
+BuiltIn.java
 -----------------------------------
-Nothing to do here!
+23: The method isProcedure() should be defined in
+38: The method apply() should be defined in class Node
 
-Parser.java
+Closure.java
 -----------------------------------
-49: Figure out how to deal with TokenType QUOTE and DOT
-70: write code for parsing DOT and QUOTE
+22: The method isProcedure() should be defined in
+37: The method apply() should be defined in class Node
 
-Begin.java
+Cond.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
-IntToken.java
+Cons.java
 -----------------------------------
-Nothing to do here!
+45: Add any helper functions for parseList as appropriate.
 
-Special.java
+Define.java
 -----------------------------------
-Nothing to do here!
+5: Add any fields needed.
+8: Add an appropriate constructor.
 
-Nil.java
+Environment.java
 -----------------------------------
-Nothing to do here!
+89: implement this function
+93: implement this function
 
 Ident.java
 -----------------------------------
 Nothing to do here!
 
-Lambda.java
+IdentToken.java
+-----------------------------------
+Nothing to do here!
+
+If.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -75,11 +56,11 @@ IntLit.java
 -----------------------------------
 Nothing to do here!
 
-TokenType.java
+IntToken.java
 -----------------------------------
 Nothing to do here!
 
-If.java
+Lambda.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -89,12 +70,25 @@ Let.java
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
+Main.java
+-----------------------------------
+Nothing to do here!
+
+Nil.java
+-----------------------------------
+Nothing to do here!
+
+Node.java
+-----------------------------------
+31: implement these in the appropriate subclasses to return TRUE.
+39: Report an error in these default methods and implement them
+
 Quote.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
-Define.java
+Regular.java
 -----------------------------------
 5: Add any fields needed.
 8: Add an appropriate constructor.
@@ -104,11 +98,23 @@ Set.java
 5: Add any fields needed.
 8: Add an appropriate constructor.
 
-IdentToken.java
+Special.java
 -----------------------------------
 Nothing to do here!
 
-Main.java
+StrLit.java
+-----------------------------------
+Nothing to do here!
+
+StrToken.java
+-----------------------------------
+Nothing to do here!
+
+Token.java
+-----------------------------------
+Nothing to do here!
+
+TokenType.java
 -----------------------------------
 Nothing to do here!
 
