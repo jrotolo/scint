@@ -29,7 +29,7 @@ class BooleanLit extends Node {
    		Printer.printBoolLit(n, 0);
   }
 
-  public boolean getValue() {
+  public boolean getBoolean() {
     return booleanVal;
   }
   

@@ -20,8 +20,6 @@ class BuiltIn extends Node {
 
     public Node getSymbol()		{ return symbol; }
 
-    // TODO: The method isProcedure() should be defined in
-    // class Node to return false.
     public boolean isProcedure()	{ return true; }
 
     public void print(int n) {
@@ -35,47 +33,102 @@ class BuiltIn extends Node {
 	System.out.println('}');
     }
 
-    // TODO: The method apply() should be defined in class Node
-    // to report an error.  It should be overwritten only in classes
-    // BuiltIn and Closure.
-    public Node apply (Node args) {
-        //IntLit x = (IntLit)args.getCar();
-        //IntLit y = (IntLit)args.getCdr().getCar();
+    public Node apply (Node args, Environment env) {
+    	if (args == null) {
+    		return null;
+    	}
 
-        if (symbol.getName() == "b+") {
-            IntLit x = (IntLit)args.getCar();
-            IntLit y = (IntLit)args.getCdr().getCar();
-            return new IntLit(x.getValue() + y.getValue());
-        } else if (symbol.getName() == "b-") {
-            IntLit x = (IntLit)args.getCar();
-            IntLit y = (IntLit)args.getCdr().getCar();
-            return new IntLit(x.getValue() - y.getValue());
-        } else if (symbol.getName() == "b*") {
-            IntLit x = (IntLit)args.getCar();
-            IntLit y = (IntLit)args.getCdr().getCar();
-            return new IntLit(x.getValue() * y.getValue());
-        } else if (symbol.getName() == "b/") {
-            IntLit x = (IntLit)args.getCar();
-            IntLit y = (IntLit)args.getCdr().getCar();
-            return new IntLit(x.getValue() / y.getValue());
-        }  else if (symbol.getName() == "b=") {
-            IntLit x = (IntLit)args.getCar();
-            IntLit y = (IntLit)args.getCdr().getCar();
-            return new BooleanLit(x.getValue() == y.getValue());
-        } else if (symbol.getName() == "b<") {
-            IntLit x = (IntLit)args.getCar();
-            IntLit y = (IntLit)args.getCdr().getCar();
-            return new BooleanLit((x.getValue() < y.getValue()));
-        } else if (symbol.getName() == "b>") {
-            IntLit x = (IntLit)args.getCar();
-            IntLit y = (IntLit)args.getCdr().getCar();
-            return new BooleanLit((x.getValue() > y.getValue()));
-        } else if (symbol.getName() == "number?") {
-            return new BooleanLit(args.getCar().isNumber());
-        } else if (symbol.getName() == "symbol?") {
-            return new BooleanLit(args.getCar().isSymbol());
-        } else {
-           return null;
-        }  
+    	String symbolName = symbol.getName();
+
+    	Node arg1 = args.getCar();
+    	Node arg2 = args.getCdr().getCar();
+        
+
+        if (symbolName == "b+") {
+        	if (arg1.isNumber() && arg2.isNumber()) {
+            	return new IntLit(arg1.getValue() + arg2.getValue());
+        	} else {
+        		System.err.println("Error: Arguments must be a number for (b+)");
+        		return null;
+        	}
+        } else if (symbolName == "b-") {
+            if (arg1.isNumber() && arg2.isNumber()) {
+            	return new IntLit(arg1.getValue() - arg2.getValue());
+        	} else {
+        		System.err.println("Error: Arguments must be a number for (b-)");
+        		return null;
+        	}
+        } else if (symbolName == "b*") {
+            if (arg1.isNumber() && arg2.isNumber()) {
+            	return new IntLit(arg1.getValue() * arg2.getValue());
+        	} else {
+        		System.err.println("Error: Arguments must be a number");
+        		return null;
+        	}
+        } else if (symbolName == "b/") {
+            if (arg1.isNumber() && arg2.isNumber()) {
+            	return new IntLit(arg1.getValue() / arg2.getValue());
+        	} else {
+        		System.err.println("Error: Arguments must be a number");
+        		return null;
+        	}
+        }  else if (symbolName == "b=") {
+            if (arg1.isNumber() && arg2.isNumber()) {
+            	return new BooleanLit(arg1.getValue() == arg2.getValue());
+        	} else {
+        		System.err.println("Error: Arguments must be a number");
+        		return null;
+        	}
+        } else if (symbolName == "b<") {
+            if (arg1.isNumber() && arg2.isNumber()) {
+            	return new BooleanLit(arg1.getValue() < arg2.getValue());
+        	} else {
+        		System.err.println("Error: Arguments must be a number");
+        		return null;
+        	}
+        } else if (symbolName == "b>") {
+            if (arg1.isNumber() && arg2.isNumber()) {
+            	return new BooleanLit(arg1.getValue() > arg2.getValue());
+        	} else {
+        		System.err.println("Error: Arguments must be a number");
+        		return null;
+        	}
+        } else if (symbolName == "number?") {
+            return new BooleanLit(arg1.isNumber());
+        } else if (symbolName == "symbol?") {
+            return new BooleanLit(arg1.isSymbol());
+        } else if (symbolName == "car") {
+        	if (arg1.isNull()) {
+        		return arg1;
+        	}
+        	return arg1.getCar();
+        } else if (symbolName == "cdr") {
+        	if (arg1.isNull()) {
+        		return arg1;
+        	}
+        	return arg1.getCdr();
+        } else if (symbolName == "cons") {
+        	return new Cons(arg1, arg2);
+    	} else if (symbolName == "set-car!") {
+    		arg1.setCar(arg2); return arg1;
+    	} else if (symbolName == "set-cdr!") {
+    		arg1.setCdr(arg2); return arg1;
+    	} else if (symbolName == "null?") {
+    		return new BooleanLit(arg1.isNull());
+    	} else if (symbolName == "pair?") {
+    		return new BooleanLit(arg1.isPair());
+    	} else if (symbolName == "eq?") {
+    		return new BooleanLit(arg1 == arg2);
+    	} else if (symbolName == "procedure?") {
+    		return new BooleanLit(env.lookup(arg1).isProcedure());
+    	} else if (symbolName == "display") {
+    		return arg1;
+    	} else if (symbolName == "eval") {
+    		return arg1;
+    	} else if (symbolName == "apply") {
+    		return arg1.apply(arg2, env);
+    	} else {
+    		return null;
+    	}
     } 
 }

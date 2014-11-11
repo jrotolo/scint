@@ -28,9 +28,9 @@ class Regular extends Special {
     	}
     	
     	if (first.isProcedure()) {
-    		return first.apply(args);
+    		return first.apply(args, env);
     	} else {
-    		return first.eval(env).apply(args);
+    		return first.eval(env).apply(args, env);
     	} 
     }   
 }
