@@ -61,6 +61,7 @@ public class Main {
 	root = parser.parseExp();
 	while (root != null) {
 	    root.print(0);
+	    root.eval(gEnv).print(0);
 	    root = parser.parseExp();
 	}
 	System.exit(0);

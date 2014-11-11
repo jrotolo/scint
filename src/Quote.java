@@ -13,6 +13,8 @@ class Quote extends Special {
     	Printer.printQuote(t, n, p);
     }
 
+    public Node eval() { return this.getCdr().getCar(); }
+
 }
     
 

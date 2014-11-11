@@ -39,6 +39,21 @@ class BuiltIn extends Node {
     // to report an error.  It should be overwritten only in classes
     // BuiltIn and Closure.
     public Node apply (Node args) {
-	return null;
+        // Use getName because symbol is an Ident Node. Is it an Ident for all builtins???
+        if (symbol.getName() == "b+") {
+            return new IntLit(args.getCar().getValue() + args.getCadr().getValue());
+        } else if (symbol.getName() == "b-") {
+            return new IntLit(args.getCar().getValue() + args.getCadr().getValue());
+        } else if (symbol.getName() == "b*") {
+            return new IntLit(args.getCar().getValue() * args.getCadr().getValue());
+        } else if (symbol.getName() == "b/") {
+            return new IntLit(args.getCar().getValue() / args.getCadr().getValue());
+        } else if (symbol.getName() == "b=") {
+            return (args.getCar().getValue() == args.getCadr().getValue()) ? new BooleanLit(true) : new BooleanLit(false);
+        } else if (symbol.getName() == "b<") {
+            return (args.getCar().getValue() < args.getCadr().getValue()) ? new BooleanLit(true) : new BooleanLit(false);
+        } else {
+	       return null;
+        }
     }
 }

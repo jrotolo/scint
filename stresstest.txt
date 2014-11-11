@@ -1,0 +1,88 @@
+(define a (cons '(1 2 3) '(4 (5))))
+(define aa (cons '(1 (2) 3) '((4) (5))))
+(define b (b+ 1 1))
+(define c (b- 2 1))
+(define d (b< 2 1))
+(define e (b< 1 2))
+(define f (b/ 2 1))
+(define g (b* 2 1))
+(define h (b+ (b+ 1 1) (b+ 1 1)))
+(define i (b+ (b* 2 2) (b* 2 2)))
+(define j (b+ (b* 2 2) (b* 2 2)))
+(define k (symbol? b))
+(define l (symbol? 'x))
+(define m (symbol? 1))
+(define n (number? 1))
+(define o (number? 'c))
+(define p (number? '1))
+(define po (cons p o))
+(define aaa (cons a aa))
+(define ab (cons a b))
+(define cd (cons c d))
+(define mn (cons m n))
+(define poaaa (cons po aaa))
+(define poaaaab (cons poaaa ab))
+(define zzzq (cons '(((#f #f) ((1 2 3) 4 (5)) (1 (2) 3) (4) (5)) ((1 2 3) 4 (5)) 2) poaaaab ))
+(define zzzqzzzq (cons zzzq zzzq))
+(define zzzqzzzqzzzqzzzq (cons zzzqzzzq zzzqzzzq))
+(define ppp '(define (x z) (lambda (+ x z)(1 2))))
+"end defines"
+(symbol? 'foo)
+(symbol? (car '(a b)))
+(symbol? "bar")
+(symbol? 'nil)
+(symbol? '())
+(symbol? #f)
+
+
+(number? b)
+(number? 1)
+(number? 'x)
+
+(procedure? b+)
+(procedure? b-)
+(procedure? b*)
+(procedure? b/)
+(procedure? b<)
+(procedure? b=)
+
+
+a
+aa
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+po
+aaa
+ab
+cd
+mn
+ppp
+
+poaaa
+poaaaab
+zzzq
+zzzqzzzq
+zzzqzzzqzzzqzzzq
+"undefined variable:"
+dddddddddddddddddd
+
+"functions:"
+(define (x y) (b+ y y))
+(define (fun p q)(b* (b+ p q) (b+ p q)))
+(define z (b+ 1 1))
+(define zz (b+ z z))
+(x z)
+(fun zz z)
