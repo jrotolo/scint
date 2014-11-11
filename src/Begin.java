@@ -13,4 +13,6 @@ class Begin extends Special {
     	  Printer.printBegin(t, n, p);
 
     }
+
+    public Node eval(Node t, Environment env) { return null; }
 }

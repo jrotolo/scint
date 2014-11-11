@@ -46,6 +46,8 @@ class Node {
   public static Node getCdr(Node t) { return t.getCdr(); }
   public static boolean isNull(Node t) { return t.isNull(); }
   public static boolean isPair(Node t) { return t.isPair(); }
+  public Node eval(Environment env) { return null; }
+  public Node apply(Node args) { System.out.println("error in apply"); return null; }
   
   public Node getCar() {return null;}
   public Node getCdr() {return null;}

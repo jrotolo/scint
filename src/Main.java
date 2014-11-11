@@ -55,12 +55,26 @@ public class Main {
 
 	// Setup Environment
 	Environment gEnv = new Environment();
+	Ident id = new Ident("b+");
+	gEnv.define(id, new BuiltIn(id));
+	id = new Ident("b-");
+	gEnv.define(id, new BuiltIn(id));
+	id = new Ident("b*");
+	gEnv.define(id, new BuiltIn(id));
+	id = new Ident("b/");
+	gEnv.define(id, new BuiltIn(id));
+	id = new Ident("b=");
+	gEnv.define(id, new BuiltIn(id));
+	id = new Ident("b<");
+	gEnv.define(id, new BuiltIn(id));
+
 	
 	// Parse and pretty-print each input expression
 	
 	root = parser.parseExp();
+	gEnv.print(0);
 	while (root != null) {
-	    root.print(0);
+	    //root.print(0);
 	    root.eval(gEnv).print(0);
 	    root = parser.parseExp();
 	}

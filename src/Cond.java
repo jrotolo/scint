@@ -12,4 +12,6 @@ class Cond extends Special {
     void print(Node t, int n, boolean p) { 
     	Printer.printCond(t, n, p);
     }
+
+    public Node eval(Node t, Environment env) { return null; }
 }

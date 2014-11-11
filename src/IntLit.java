@@ -12,7 +12,7 @@ class IntLit extends Node {
   	return intVal;
   }
 
-  public int eval() { return this.getValue(); }
+  public Node eval(Environment env) { return this; }
 
   public boolean isNumber() { return true; }
 
