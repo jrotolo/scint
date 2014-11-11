@@ -87,4 +87,19 @@ class Environment extends Node {
     		System.out.println("Undefined assignment");
     	}
     }
+
+    public void buildEnvironment() {
+        String[] builtIns = { "b+", "b-", "b*", "b/", "b=", "b<",
+                            "b>", "number?", "symbol?", "car",
+                            "cdr", "cons", "set-car!", "set-cdr!",
+                            "null?", "pair?", "eq?", "procedure?",
+                            "read", "write", "eval", "apply", "display",
+                            "newline", "interaction-environment" };
+
+        Ident id;
+        for (String s: builtIns) {
+            id = new Ident(s);
+            this.define(id, new BuiltIn(id));
+        }
+    }
 }

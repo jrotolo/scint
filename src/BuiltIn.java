@@ -31,7 +31,7 @@ class BuiltIn extends Node {
 	System.out.println("#{Built-in Procedure");
 	symbol.print(n+3);
 	for (int i = 0; i < n; i++)
-	    System.out.print(' ');
+	   System.out.print(' ');
 	System.out.println('}');
     }
 
@@ -39,23 +39,43 @@ class BuiltIn extends Node {
     // to report an error.  It should be overwritten only in classes
     // BuiltIn and Closure.
     public Node apply (Node args) {
-        IntLit x = (IntLit)args.getCar();
-        IntLit y = (IntLit)args.getCdr().getCar();
+        //IntLit x = (IntLit)args.getCar();
+        //IntLit y = (IntLit)args.getCdr().getCar();
 
         if (symbol.getName() == "b+") {
+            IntLit x = (IntLit)args.getCar();
+            IntLit y = (IntLit)args.getCdr().getCar();
             return new IntLit(x.getValue() + y.getValue());
         } else if (symbol.getName() == "b-") {
+            IntLit x = (IntLit)args.getCar();
+            IntLit y = (IntLit)args.getCdr().getCar();
             return new IntLit(x.getValue() - y.getValue());
         } else if (symbol.getName() == "b*") {
+            IntLit x = (IntLit)args.getCar();
+            IntLit y = (IntLit)args.getCdr().getCar();
             return new IntLit(x.getValue() * y.getValue());
         } else if (symbol.getName() == "b/") {
+            IntLit x = (IntLit)args.getCar();
+            IntLit y = (IntLit)args.getCdr().getCar();
             return new IntLit(x.getValue() / y.getValue());
         }  else if (symbol.getName() == "b=") {
+            IntLit x = (IntLit)args.getCar();
+            IntLit y = (IntLit)args.getCdr().getCar();
             return new BooleanLit(x.getValue() == y.getValue());
         } else if (symbol.getName() == "b<") {
+            IntLit x = (IntLit)args.getCar();
+            IntLit y = (IntLit)args.getCdr().getCar();
             return new BooleanLit((x.getValue() < y.getValue()));
+        } else if (symbol.getName() == "b>") {
+            IntLit x = (IntLit)args.getCar();
+            IntLit y = (IntLit)args.getCdr().getCar();
+            return new BooleanLit((x.getValue() > y.getValue()));
+        } else if (symbol.getName() == "number?") {
+            return new BooleanLit(args.getCar().isNumber());
+        } else if (symbol.getName() == "symbol?") {
+            return new BooleanLit(args.getCar().isSymbol());
         } else {
-	       return null;
-        } 
+           return null;
+        }  
     } 
 }

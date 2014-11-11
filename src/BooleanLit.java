@@ -9,13 +9,13 @@ class BooleanLit extends Node {
   }
   
   public static BooleanLit getInstance(boolean val){
-  		if(val==true){
-  			if(True==null)
+  		if (val==true){
+  			if (True==null)
   				True=new BooleanLit(true);
   			return True;
    		}
-  		else{
-  			if(False==null)
+  		else {
+  			if (False==null)
   				False=new BooleanLit(false);
   			return False;
   		}
@@ -23,7 +23,7 @@ class BooleanLit extends Node {
  
    public void print(int n) {
    	
-   	if(booleanVal)
+   	if (booleanVal)
    		Printer.printBoolLit(n, 1);
    	else
    		Printer.printBoolLit(n, 0);
@@ -36,6 +36,8 @@ class BooleanLit extends Node {
   public Node eval(Environment env) {
     return this;
   }
+
+  
   
 
   public boolean isBoolean()   { return true; }
