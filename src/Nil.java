@@ -5,22 +5,18 @@ class Nil extends Node {
   
   protected Nil() { }
   
-  public static Nil getInstance(){
-  
-  		if(inst==null)
-  			inst=new Nil();
-  		
-  		return inst;
-  	
-}
+  public static Nil getInstance() {
+    if(inst==null)
+    	inst=new Nil();
 
-  public void print(int n)		{ print(n, false); }
+    return inst;	
+  }
+
+  public void print(int n) { print(n, false); }
   
   public void print(int n, boolean p) {
-  	 Printer.printNil(n, p);
+    Printer.printNil(n, p);
   }
   
-  public boolean isNull()   { return true; }
-  
-  
+  public boolean isNull() { return true; } 
 }

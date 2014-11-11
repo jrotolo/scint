@@ -2,10 +2,6 @@ import java.io.*;
 
 class Define extends Special {
  
-    // TODO: Add any fields needed.
-
- 
-    // TODO: Add an appropriate constructor.
 	public Define(Node t){
 
 	}

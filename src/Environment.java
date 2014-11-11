@@ -56,7 +56,6 @@ class Environment extends Node {
 		System.out.println('}');
     }
 
-
     public Node lookup (Node id) {
 		Node val = scope.find(id);
 		if (val == null && env == null) {

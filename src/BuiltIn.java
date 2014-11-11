@@ -12,7 +12,6 @@
 // Another alternative is to program BuiltIn.apply() in a functional
 // style by writing a large if-then-else chain that tests the name of
 // of the function symbol.
-
 class BuiltIn extends Node {
     private Node symbol;
 
@@ -39,11 +38,9 @@ class BuiltIn extends Node {
     	}
 
     	String symbolName = symbol.getName();
-
     	Node arg1 = args.getCar();
     	Node arg2 = args.getCdr().getCar();
         
-
         if (symbolName == "b+") {
         	if (arg1.isNumber() && arg2.isNumber()) {
             	return new IntLit(arg1.getValue() + arg2.getValue());

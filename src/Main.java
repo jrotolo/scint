@@ -1,5 +1,4 @@
 // Main.java -- the main program
-
 import java.io.*;
 import java.util.*;
 
@@ -17,11 +16,9 @@ public class Main {
 	"IDENT"				// identifier
     };
 
-    public static void main (String argv[]) {
-    	
+    public static void main (String argv[]) {    	
 		// create scanner that reads from standard input
 		Scanner scanner = new Scanner(System.in);
-
 
 		if (argv.length > 1) {
 		    System.err.println("Usage: java Main [-d]");

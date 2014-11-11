@@ -37,9 +37,5 @@ class BooleanLit extends Node {
     return this;
   }
 
-  
-  
-
   public boolean isBoolean()   { return true; }
-
 }
