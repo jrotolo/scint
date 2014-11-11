@@ -3,6 +3,14 @@ platform='unknown'
 unamestr=`uname`
 flag=$1
 
+Compile_Program () {
+	printf "Compiling program...\n"
+	DIR="bin"
+	if [ ! -d "$DIR" ]; then
+	    mkdir bin
+	fi
+	javac -d bin -cp lib/spp.jar src/*.java	
+}
 
 if [[ "$unamestr" == 'MINGW32_NT-6.1' ]]; then
 	platform='windows'
@@ -15,12 +23,8 @@ if [[ "$platform" == 'unknown' ]]; then
 	exit
 elif [[ "$platform" == 'linux' ]]; then
 	clear
-	printf "Compiling program...\n"
-	DIR="bin"
-	if [ ! -d "$DIR" ]; then
-	    mkdir bin
-	fi
-	javac -d bin -cp lib/spp.jar src/*.java
+
+	Compile_Program
 
 	printf "Running program...\n"
 	if [[ $flag ]]; then
@@ -30,13 +34,9 @@ elif [[ "$platform" == 'linux' ]]; then
 	fi
 elif [[ "$platform" == 'windows' ]]; then
 	cls
-	printf "Compiling program...\n"
-	DIR="bin"
-	if [[ ! -d "$DIR" ]]; then
-		mkdir bin
-	fi
-	javac -d bin -cp lib/spp.jar src/*.java
 
+	Compile_Program
+	
 	printf "Running program...\n"
 	cd src
 	if [[ $flag ]]; then
