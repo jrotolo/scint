@@ -57,7 +57,12 @@ public class Main {
 		// Parse and pretty-print each input expression
 		root = parser.parseExp();
 		while (root != null) {
-		    root.eval(gEnv).print(0);
+			try {
+		    	root.eval(gEnv).print(0);
+		    } catch (NullPointerException e) {
+		    	e.printStackTrace();
+		    	//System.out.println(e.getMessage());
+		    }
 		    root = parser.parseExp();
 		}
 		System.exit(0);

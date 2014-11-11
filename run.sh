@@ -1,6 +1,8 @@
 #!/bin/bash
 platform='unknown'
 unamestr=`uname`
+flag=$1
+
 
 if [[ "$unamestr" == 'MINGW32_NT-6.1' ]]; then
 	platform='windows'
@@ -12,6 +14,7 @@ if [[ "$platform" == 'unknown' ]]; then
 	echo "Error can't detect os type"
 	exit
 elif [[ "$platform" == 'linux' ]]; then
+	clear
 	printf "Compiling program...\n"
 	DIR="bin"
 	if [ ! -d "$DIR" ]; then
@@ -20,8 +23,13 @@ elif [[ "$platform" == 'linux' ]]; then
 	javac -d bin -cp lib/spp.jar src/*.java
 
 	printf "Running program...\n"
-	java -cp bin:lib/spp.jar Main
+	if [[ $flag ]]; then
+		java -cp ../bin:../lib Main < ../$flag
+	else
+		java -cp ../bin:../lib Main
+	fi
 elif [[ "$platform" == 'windows' ]]; then
+	cls
 	printf "Compiling program...\n"
 	DIR="bin"
 	if [[ ! -d "$DIR" ]]; then
@@ -31,5 +39,9 @@ elif [[ "$platform" == 'windows' ]]; then
 
 	printf "Running program...\n"
 	cd src
-	java -cp ../bin:../lib Main
+	if [[ $flag ]]; then
+		java -cp ../bin:../lib Main < ../$flag
+	else
+		java -cp ../bin:../lib Main
+	fi
 fi
