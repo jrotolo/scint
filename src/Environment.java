@@ -59,7 +59,7 @@ class Environment extends Node {
     public Node lookup (Node id) {
 		Node val = scope.find(id);
 		if (val == null && env == null) {
-		    System.out.println("undefined variable");
+		    //System.out.println("undefined variable");
 		    return Nil.getInstance();
 		}
 		else if (val == null)

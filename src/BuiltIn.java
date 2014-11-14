@@ -92,8 +92,14 @@ class BuiltIn extends Node {
         	}
         } else if (symbolName == "number?") {
             return new BooleanLit(arg1.isNumber());
+
+        // ** NOTICE ** I changed the behavior of symbol? to match scheme48. May need to check up on this
         } else if (symbolName == "symbol?") {
-            return new BooleanLit(arg1.isSymbol());
+            if (!(env.lookup(arg1).isNull())) {
+                return new BooleanLit(arg1.isSymbol());
+            } else {
+                return new StrLit("Error: Undefined variable " + arg1.getName());
+            }
         } else if (symbolName == "car") {
         	if (arg1.isNull()) {
         		return arg1;
