@@ -19,6 +19,7 @@ public class Main {
     public static void main (String argv[]) {    	
 		// create scanner that reads from standard input
 		Scanner scanner = new Scanner(System.in);
+		System.out.print("Scheme 4101> ");
 
 		if (argv.length > 1) {
 		    System.err.println("Usage: java Main [-d]");
@@ -59,9 +60,9 @@ public class Main {
 		while (root != null) {
 			try {
 		    	root.eval(gEnv).print(0);
+		    	System.out.print("Scheme 4101> ");
 		    } catch (NullPointerException e) {
-		    	e.printStackTrace();
-		    	//System.out.println(e.getMessage());
+		    	System.out.println(e.getMessage());
 		    }
 		    root = parser.parseExp();
 		}

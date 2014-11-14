@@ -10,5 +10,17 @@ class Define extends Special {
     	  Printer.printDefine(t, n, p);
     }
 
-    public Node eval(Node t, Environment env) { return null; }
+    public Node eval(Node t, Environment env) { 
+    	Node key = t.getCdr().getCar();
+    	Node value = t.getCdr().getCdr().getCar();
+
+    	if (key.isSymbol()) {
+    		env.define(key, value);
+    	} else {
+    		Closure func = new Closure(t.getCdr().getCdr(), env);
+    		env.define(key.getCar(), func);
+    	}
+
+    	return new StrLit("no values returned from define");
+    }
 }

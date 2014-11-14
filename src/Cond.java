@@ -9,5 +9,9 @@ class Cond extends Special {
     	Printer.printCond(t, n, p);
     }
 
-    public Node eval(Node t, Environment env) { return null; }
+    public Node eval(Node t, Environment env) { 
+    	//Node exp = t.getCdr().getCar();
+    	//exp.eval(exp.getCar(), env);
+    	return null; 
+    }
 }

@@ -21,6 +21,7 @@
 (procedure? b-)
 (procedure? b*)
 (procedure? b/)
+1
 (procedure? b<)
 (procedure? b=)
 
