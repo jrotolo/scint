@@ -9,7 +9,7 @@ class Quote extends Special {
     }
 
     public Node eval(Node t, Environment env) { 
-    	return t.getCdr().getCar(); 
+    	return t.getCadr(); 
     }
 
 }

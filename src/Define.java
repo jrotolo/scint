@@ -11,13 +11,13 @@ class Define extends Special {
     }
 
     public Node eval(Node t, Environment env) { 
-    	Node key = t.getCdr().getCar();
-    	Node value = t.getCdr().getCdr().getCar();
+    	Node key = t.getCadr();
+    	Node value = t.getCaddr();
 
     	if (key.isSymbol()) {
     		env.define(key, value);
     	} else {
-    		Closure func = new Closure(t.getCdr().getCdr(), env);
+    		Closure func = new Closure(t.getCddr(), env);
     		env.define(key.getCar(), func);
     	}
 

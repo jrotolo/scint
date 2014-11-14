@@ -39,7 +39,7 @@ class BuiltIn extends Node {
 
     	String symbolName = symbol.getName();
     	Node arg1 = args.getCar();
-    	Node arg2 = args.getCdr().getCar();
+    	Node arg2 = args.getCadr();
         
         if (symbolName == "b+") {
         	if (arg1.isNumber() && arg2.isNumber()) {

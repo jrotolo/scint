@@ -41,6 +41,17 @@ class Node {
 
   public Node getCdr() { return null; }
 
+
+  public Node getCadr() { return this.getCdr().getCar(); }
+
+  public Node getCaddr() { return this.getCdr().getCdr().getCar(); }
+
+  public Node getCaadr() { return this.getCdr().getCar().getCar(); }
+
+  public Node getCaar() { return this.getCar().getCar(); }
+
+  public Node getCddr() { return this.getCdr().getCdr(); }
+
   public void setCar(Node a) {}
 
   public void setCdr(Node d) {}

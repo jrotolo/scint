@@ -8,9 +8,9 @@ class If extends Special {
     }
 
     public Node eval(Node t, Environment env) { 
-    	Node cond = t.getCdr().getCar();
-    	Node ifClause = t.getCdr().getCdr().getCar();
-    	Node elseClause = t.getCdr().getCdr().getCdr().getCar();
+    	Node cond = t.getCadr();
+    	Node ifClause = t.getCaddr();
+    	Node elseClause = t.getCddr().getCadr();
     	Node value = null;
 
     	return (cond.eval(env).getBoolean()) ? ifClause.eval(env) : elseClause.eval(env);

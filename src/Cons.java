@@ -62,6 +62,14 @@ class Cons extends Node {
 
     public Node getCadr() { return this.getCdr().getCar(); }
 
+    public Node getCaddr() { return this.getCdr().getCdr().getCar(); }
+
+    public Node getCaadr() { return this.getCdr().getCar().getCar(); }
+
+    public Node getCddr() { return this.getCdr().getCdr(); }
+
+    public Node getCaar() { return this.getCar().getCar(); }
+
     public Node eval(Environment env) {
         return form.eval(this, env);
     }

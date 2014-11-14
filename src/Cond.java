@@ -12,10 +12,10 @@ class Cond extends Special {
     public Node eval(Node t, Environment env) { 
     	Node exp = t.getCdr();
 
-    	while ((!(exp.getCar()).getCar().eval(env).getBoolean()) && (!exp.isNull())) {
+    	while ((!(exp.getCaar().eval(env).getBoolean()) && (!exp.isNull()))) {
     		exp = exp.getCdr();
     	}
 
-    	return (exp.isNull()) ? null : exp.getCar().getCdr().getCar().eval(env);
+    	return (exp.isNull()) ? null : exp.getCar().getCadr().eval(env);
     }
 }

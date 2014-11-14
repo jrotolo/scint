@@ -11,21 +11,19 @@ class Set extends Special {
     }
 
     public Node eval(Node t, Environment env) {
-    	Node key = t.getCdr().getCar();
-    	Node value = t.getCdr().getCdr().getCar();
+    	Node key = t.getCadr();
+    	Node value = t.getCaddr();
     	Node existingKey = env.lookup(key);
-    	System.out.println("Key before set: "+env.lookup(key).getValue());
  
     	value = value.eval(env);
 
     	if (!(existingKey.isNull())) {
     		env.assign(key, value);
-    		System.out.println("Key after set: "+env.lookup(key).getValue());
+            return new StrLit("#{Unspecific}");
     	} else {
-    		System.out.println("Error: can't find bindings for given key.");
+    		return new StrLit("Error: can't find bindings for given key."");
     	}
 
-    	return new StrLit("#{Unspecific}");
     }
 
 }
