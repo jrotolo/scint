@@ -10,20 +10,22 @@ class Set extends Special {
     	Printer.printSet(t, n, p);
     }
 
-    // I Think this works not sure if im testing it right though.
     public Node eval(Node t, Environment env) {
     	Node key = t.getCdr().getCar();
     	Node value = t.getCdr().getCdr().getCar();
     	Node existingKey = env.lookup(key);
+    	System.out.println("Key before set: "+env.lookup(key).getValue());
  
     	value = value.eval(env);
 
     	if (!(existingKey.isNull())) {
-    		env.assign(existingKey, value);
+    		env.assign(key, value);
+    		System.out.println("Key after set: "+env.lookup(key).getValue());
     	} else {
     		System.out.println("Error: can't find bindings for given key.");
     	}
-    	return null;
+
+    	return new StrLit("#{Unspecific}");
     }
 
 }
