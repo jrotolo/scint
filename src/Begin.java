@@ -10,16 +10,16 @@ class Begin extends Special {
 
     }
 
-    // Not working right!
     public Node eval(Node t, Environment env) { 
-    	Node exp = t.getCdr().getCar();
-    	exp.getCar().eval(env);
+    	Node exp = t.getCdr();
+    	Node value = exp.getCar().eval(env);
+    	exp = exp.getCdr();
 
-    	if (exp.isNull()) {
-    		return Nil.getInstance();
-    	} else {
-    		return (exp.getCdr().getCar().eval(env));
+    	while (!exp.isNull()) {
+    		value = exp.getCar().eval(env);
+    		exp = exp.getCdr();
     	}
 
+    	return value;
     }
 }
