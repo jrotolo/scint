@@ -41,6 +41,31 @@ class Closure extends Node {
     // to report an error.  It should be overwritten only in classes
     // BuiltIn and Closure.
     public Node apply (Node args) {
-	   return null;
+        // Grab environment from closure
+        Environment localEnv = new Environment(this.getEnv());
+
+        // Grab the lambda expression
+        Node lambdaFun = this.getFun();
+
+        // Get params from lambda expression
+        Node params = lambdaFun.getCdr().getCar();
+        Node lambdaBody = lambdaFun.getCdr().getCdr();
+
+        // Node to hold result
+        Node value = null;
+
+        // Assign params to args in local environment
+        while (!(params.isNull())) {
+            localEnv.assign(params.getCar(), args.getCar());
+            params = params.getCdr();
+        }
+
+        //Recursively evaluate all the expression in the body of lambda
+        while (!(lambdaBody.isNull())) {
+            value = lambdaBody.getCar().eval(localEnv);
+            lambdaBody = lambdaBody.getCdr();
+        }
+        
+	   return value;
     }
 }
