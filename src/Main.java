@@ -63,6 +63,7 @@ public class Main {
 		    	System.out.print("Scheme 4101> ");
 		    } catch (NullPointerException e) {
 		    	System.out.println(e.getMessage());
+		    	System.out.print("Scheme 4101> ");
 		    }
 		    root = parser.parseExp();
 		}

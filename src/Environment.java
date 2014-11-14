@@ -60,7 +60,7 @@ class Environment extends Node {
 		Node val = scope.find(id);
 		if (val == null && env == null) {
 		    System.out.println("undefined variable");
-		    return null;
+		    return new Nil();
 		}
 		else if (val == null)
 		    // look up the identifier in the enclosing scope

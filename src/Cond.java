@@ -9,7 +9,6 @@ class Cond extends Special {
     	Printer.printCond(t, n, p);
     }
 
-    // NOt quite working right
     public Node eval(Node t, Environment env) { 
     	Node exp = t.getCdr();
 
@@ -17,13 +16,6 @@ class Cond extends Special {
     		exp = exp.getCdr();
     	}
 
-    	
- 
-    	if (exp.isNull()) {
-    		return null;
-    	} else {
-
-    		return (exp.getCar().getCdr().getCar().eval(env));
-    	}
+    	return (exp.isNull()) ? null : exp.getCar().getCdr().getCar().eval(env);
     }
 }
