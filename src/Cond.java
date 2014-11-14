@@ -9,9 +9,21 @@ class Cond extends Special {
     	Printer.printCond(t, n, p);
     }
 
+    // NOt quite working right
     public Node eval(Node t, Environment env) { 
-    	//Node exp = t.getCdr().getCar();
-    	//exp.eval(exp.getCar(), env);
-    	return null; 
+    	Node exp = t.getCdr();
+
+    	while ((!(exp.getCar()).getCar().eval(env).getBoolean()) && (!exp.isNull())) {
+    		exp = exp.getCdr();
+    	}
+
+    	
+ 
+    	if (exp.isNull()) {
+    		return null;
+    	} else {
+
+    		return (exp.getCar().getCdr().getCar().eval(env));
+    	}
     }
 }

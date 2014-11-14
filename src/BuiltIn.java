@@ -118,9 +118,7 @@ class BuiltIn extends Node {
     		return new BooleanLit(arg1 == arg2);
     	} else if (symbolName == "procedure?") {
     		return new BooleanLit(env.lookup(arg1).isProcedure());
-    	} else if (symbolName == "display") {
-    		return arg1;
-    	} else if (symbolName == "eval") {
+    	} else if (symbolName == "display" || symbolName == "eval") {
     		return arg1;
     	} else if (symbolName == "apply") {
     		return arg1.apply(arg2, env);

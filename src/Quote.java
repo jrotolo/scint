@@ -8,7 +8,9 @@ class Quote extends Special {
     	Printer.printQuote(t, n, p);
     }
 
-    public Node eval(Node t, Environment env) { return null; }
+    public Node eval(Node t, Environment env) { 
+    	return t.getCdr().getCar(); 
+    }
 
 }
     
