@@ -91,6 +91,7 @@ zzzqzzzq
 zzzqzzzqzzzqzzzq
 "undefined variable:"
 dddddddddddddddddd
+"END OF LITERALS"
 
 "functions:"
 (define (x y) (b+ y y))

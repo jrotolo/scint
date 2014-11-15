@@ -17,8 +17,8 @@ class Define extends Special {
     	if (key.isSymbol()) {
     		env.define(key, value);
     	} else {
-    		Closure func = new Closure(t.getCddr(), env);
-    		env.define(key.getCar(), func);
+    		Closure func = new Closure(new Cons(t.getCadr().getCdr(), t.getCddr()), env);
+            env.define(key.getCar(), func);
     	}
 
     	return new StrLit("; no values returned");
