@@ -14,8 +14,13 @@
 // of the function symbol.
 class BuiltIn extends Node {
     private Node symbol;
+    protected static Environment interactionEnvironment = new Environment();
 
     public BuiltIn(Node s)		{ symbol = s; }
+
+    public BuiltIn(Environment env) {
+        interactionEnvironment = env;
+    }
 
     public Node getSymbol()		{ return symbol; }
 
@@ -92,14 +97,8 @@ class BuiltIn extends Node {
         	}
         } else if (symbolName == "number?") {
             return new BooleanLit(arg1.isNumber());
-
-        // ** NOTICE ** I changed the behavior of symbol? to match scheme48. May need to check up on this
         } else if (symbolName == "symbol?") {
-            if (!(env.lookup(arg1).isNull())) {
-                return new BooleanLit(arg1.isSymbol());
-            } else {
-                return new StrLit("Error: Undefined variable " + arg1.getName());
-            }
+            return new BooleanLit(arg1.isSymbol());
         } else if (symbolName == "car") {
         	if (arg1.isNull()) {
         		return arg1;
@@ -121,15 +120,47 @@ class BuiltIn extends Node {
     	} else if (symbolName == "pair?") {
     		return new BooleanLit(arg1.isPair());
     	} else if (symbolName == "eq?") {
-    		return new BooleanLit(arg1 == arg2);
+            if (arg1.isBoolean() && arg2.isBoolean()) {
+                return new BooleanLit(arg1.getBoolean() == arg2.getBoolean());
+            } else if (arg1.isNumber() && arg2.isNumber()) {
+                return new BooleanLit(arg1.getValue() == arg2.getValue());
+            } else if (arg1.isString() && arg2.isString()) {
+                return new BooleanLit(arg1.getStrVal() == arg2.getStrVal());
+            } if (arg1.isSymbol() && arg2.isSymbol()) {
+                return new BooleanLit(arg1.getName() == arg2.getName());
+            } else if (arg1.isNull() && arg2.isNull()) {
+                return new BooleanLit(true);
+    		} else if (arg1.isPair() && arg2.isPair()) {
+                Node carArgs = new Cons(arg1.getCar(), new Cons(args.getCar(), Nil.getInstance()));
+                Node cdrArgs = new Cons(arg1.getCdr(), new Cons(arg2.getCdr(), Nil.getInstance()));
+                return new BooleanLit(false);
+                //return new BooleanLit(apply(carArgs).getBoolean() && apply(cdrArgs).getBoolean());
+            }
+            return new BooleanLit(false);
     	} else if (symbolName == "procedure?") {
     		return new BooleanLit(env.lookup(arg1).isProcedure());
     	} else if (symbolName == "display" || symbolName == "eval") {
     		return arg1;
     	} else if (symbolName == "apply") {
     		return arg1.apply(arg2, env);
-    	} else {
-    		return null;
-    	}
+    	} else if (symbolName == "newline") {
+            return new StrLit("");
+        } else if (symbolName == "exit" || symbolName == "quit") {
+            System.exit(0);
+        } else if (symbolName == "write") {
+            arg1.print(0);
+        } else if (symbolName == "eval") {
+            return arg1;
+        } else if (symbolName == "read") {
+            Parser parser = new Parser(new Scanner(System.in));
+            return parser.parseExp();
+        } else if (symbolName == "interaction-environment") {
+            interactionEnvironment.print(0);
+        } else {
+            arg1.print(0);
+            return Nil.getInstance();
+        }
+
+        return new StrLit("");
     } 
 }

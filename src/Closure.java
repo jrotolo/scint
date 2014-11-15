@@ -20,10 +20,9 @@ class Closure extends Node {
     }
 
     public Node getFun()		{ return fun; }
+
     public Environment getEnv()		{ return env; }
 
-    // TODO: The method isProcedure() should be defined in
-    // class Node to return false.
     public boolean isProcedure()	{ return true; }
 
     public void print(int n) {
@@ -37,35 +36,20 @@ class Closure extends Node {
     	System.out.println('}');
     }
 
-    // TODO: The method apply() should be defined in class Node
-    // to report an error.  It should be overwritten only in classes
-    // BuiltIn and Closure.
     public Node apply (Node args) {
-        // Grab environment from closure
-        Environment localEnv = new Environment(this.getEnv());
-
-        // Grab the lambda expression
-        Node lambdaFun = this.getFun();
+        Environment localEnv = this.getEnv();
+        Node function = this.getFun();
 
         // Get params from lambda expression
-        Node params = lambdaFun.getCdr().getCar();
-        Node lambdaBody = lambdaFun.getCdr().getCdr();
+        Node params = function.getCar();
+        function = function.getCadr();
 
-        // Node to hold result
-        Node value = null;
-
-        // Assign params to args in local environment
-        while (!(params.isNull())) {
-            localEnv.assign(params.getCar(), args.getCar());
+        while (args != null && !args.getCar().isNull()) {
+            localEnv.define(params.getCar(), args.getCar());
             params = params.getCdr();
+            args = args.getCdr();
         }
 
-        //Recursively evaluate all the expression in the body of lambda
-        while (!(lambdaBody.isNull())) {
-            value = lambdaBody.getCar().eval(localEnv);
-            lambdaBody = lambdaBody.getCdr();
-        }
-        
-	   return value;
+	   return function.eval(localEnv);
     }
 }

@@ -21,7 +21,7 @@ class Set extends Special {
     		env.assign(key, value);
             return new StrLit("#{Unspecific}");
     	} else {
-    		return new StrLit("Error: can't find bindings for given key."");
+    		return new StrLit("Error: can't find bindings for given key.");
     	}
 
     }

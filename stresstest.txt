@@ -5,6 +5,7 @@
 (b= 2 2)
 (b< 1 2)
 (b> 4 2)
+"END OF BASIC OPERATIONS"
 
 (symbol? 'foo)
 (symbol? (car '(a b)))
@@ -12,18 +13,20 @@
 (symbol? 'nil)
 (symbol? '())
 (symbol? #f)
+"END OF SYMBOLS"
 
 (number? b)
 (number? 1)
 (number? 'x)
+"END OF NUMBER"
 
 (procedure? b+)
 (procedure? b-)
 (procedure? b*)
 (procedure? b/)
-1
 (procedure? b<)
 (procedure? b=)
+"END OF PROCEDURES"
 
 (define a (cons '(1 2 3) '(4 (5))))
 (define aa (cons '(1 (2) 3) '((4) (5))))
@@ -53,11 +56,10 @@
 (define zzzqzzzq (cons zzzq zzzq))
 (define zzzqzzzqzzzqzzzq (cons zzzqzzzq zzzqzzzq))
 (define ppp '(define (x z) (lambda (+ x z)(1 2))))
-
 (define lamplus ((lambda (y) (b+ y y)) 1))
 (define lamstar ((lambda (y) (b* y y)) 1))
 (define malformed ((lambda (y) b* y y) 1))
-"end defines"
+"END OF DEFINES"
 
 a
 aa

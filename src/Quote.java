@@ -12,6 +12,10 @@ class Quote extends Special {
     	return t.getCadr(); 
     }
 
+    public boolean isQuote() {
+    	return true;
+    }
+
 }
     
 

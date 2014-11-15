@@ -22,6 +22,8 @@ class Node {
   public boolean isPair()   { return false; }  // Cons 
 
   public boolean isProcedure() { return false; }
+
+  public boolean isQuote() { return false; }
   
   public static void print(Node t, int n, boolean p) { t.print(n, p); }
 
@@ -59,6 +61,8 @@ class Node {
   public String getName() { return ""; }
 
   public int getValue() { return 0; }
+
+  public String getStrVal() { return ""; }
 
   public boolean getBoolean() { return false; }
 }
