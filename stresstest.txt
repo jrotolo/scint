@@ -109,7 +109,9 @@ malformed
 (quote 1 2)
 
 (define true #t)
+(true)
 (define false #f)
+(false)
 
 (if (symbol? 'x) 1 0)
 (if (symbol? 'x) (b+ 1 1) ( b+ 0 0))

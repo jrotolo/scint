@@ -35,14 +35,13 @@ class Node {
 
   public static boolean isPair(Node t) { return t.isPair(); }
 
-  public Node eval(Environment env) { return null; }
+  public Node eval(Environment env) { return this; }
 
-  public Node apply(Node args, Environment env) { System.err.println("Error: cant call apply from Node"); return null; }
+  public Node apply(Node args, Environment env) { return this.eval(env); }
   
   public Node getCar() { return null; }
 
   public Node getCdr() { return null; }
-
 
   public Node getCadr() { return this.getCdr().getCar(); }
 
