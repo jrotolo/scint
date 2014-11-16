@@ -19,7 +19,7 @@ class Closure extends Node {
         env = e; 
     }
 
-    public Node getFun()		{ return fun; }
+    public Node getFun()		    { return fun; }
 
     public Environment getEnv()		{ return env; }
 

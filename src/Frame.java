@@ -27,7 +27,7 @@ public class Frame {
 	public void printScope(int n) {
 		Iterator<String> keyIterator = scope.keySet().iterator();
 		while( keyIterator.hasNext() ) {
-		  String key   = keyIterator.next();
+		  String key = keyIterator.next();
 		  Node value = scope.get(key);
 
 		  // This may or may not work right. Worried about how value will print for different types.
