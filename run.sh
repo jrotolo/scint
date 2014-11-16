@@ -40,8 +40,8 @@ elif [[ "$platform" == 'windows' ]]; then
 	printf "Running program...\n"
 	cd src
 	if [[ $flag ]]; then
-		java -cp ../bin:../lib Main < ../$flag
+		java -cp ../bin:../lib/spp.jar Main < ../$flag
 	else
-		java -cp ../bin:../lib Main
+		java -cp ../bin:../lib/spp.jar Main
 	fi
 fi
