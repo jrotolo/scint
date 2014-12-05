@@ -1,16 +1,12 @@
 (define (+ . l) 
 	(if (null? l) 
 		0
-		(b+ (car l) (apply + (cdr l)))
-	)
-)
+		(b+ (car l) (apply + (cdr l)))))
 
 (define (- . l)
 	(if (null? l)
 		0
-		(b- (car l) (apply - (cdr l)))
-	)
-)
+		(b- (car l) (apply - (cdr l)))))
 
 (define (* . l)
 	(if (null? l)
