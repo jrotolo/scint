@@ -1,26 +1,3 @@
-(define (+ . l) 
-	(if (null? l) 
-		0
-		(b+ (car l) (apply + (cdr l)))))
-
-(define (- . l)
-	(if (null? l)
-		0
-		(b- (car l) (apply - (cdr l)))))
-
-(define (* . l)
-	(if (null? l)
-		0
-		(b* (car l) (apply * (cdr l)))))
-
-(define (zero? x) (if (= x 0) #t #f))
-(define (positive? x) (> x 0))
-(define (negative? x) (< x 0))
-(define (not pred) (if pred #f #t))
-(define (even? x) (if (= (modulo x 2) 0) #t #f))
-(define (odd? x) (if (not (= (modulo x 2) 0)) #t #f))
-
-
 ; list functions from caar ... cddddr
 (define caar (lambda (x) (car (car x))))
 (define cadr (lambda (x) (car (cdr x))))
@@ -53,13 +30,37 @@
 (define cdddar (lambda (x) (cdr (cdr (cdr (car x))))))
 (define cddddr (lambda (x) (cdr (cdr (cdr (cdr x))))))
 
-; list
-(define (list . l)
-	(if (null? l) '()
-	l))
+(define (assert pred) (if pred (display "passed\n")(display "failed\n")))
+(define l '((1 2) 3 4))
 
-; length
-(define (length l)
-	(if (null? l) 0
-	(+ 1 (length (cdr l)))))
+(assert (= (caar l) 1)) 
+(assert (= (cadr l) 3))  
+(assert (equal? (cdar l) '(2))) 
+(assert (equal? (cddr l) '(4))) 
 
+(define l2 '(((1 2) (3 4)) 5 6 (7 8)))
+(assert (= (caar l) 1))
+;(assert (= (caadr l) 5))
+(assert (= (cadar l) 3))
+(assert (= (caddr l) 6))
+(assert (= (cdaar l) (2)))
+(assert (= (cddar l) (4)))
+;(assert cdadr (= ())
+(assert (= (cddr l) '()))
+
+; (assert caaaar 
+; (assert caaadr 
+; (assert caadar 
+; (assert caaddr 
+; (assert cadaar 
+; (assert caddar 
+; (assert cadadr 
+; (assert cadddr 
+; (assert cdaaar 
+; (assert cdaadr 
+; (assert cdadar 
+; (assert cdaddr 
+; (assert cddaar 
+; (assert cddadr 
+; (assert cdddar 
+; (assert cddddr 
