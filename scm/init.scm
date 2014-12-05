@@ -74,3 +74,15 @@
 		(append (reverse (cdr l))
 			(list (car l)))))
 
+; max
+(define (max . x)
+	(if (= (length x) 1) (car x)
+		(if (> (car x) (apply max (cdr x))) (car x)
+		(apply max (cdr x)))))
+
+; min
+(define (max . x)
+	(if (= (length x) 1) (car x)
+		(if (< (car x) (apply max (cdr x))) (car x)
+		(apply max (cdr x)))))
+
