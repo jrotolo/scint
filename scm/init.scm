@@ -56,3 +56,14 @@
 (define cddadr (lambda (x) (cdr (cdr (car (cdr x))))))
 (define cdddar (lambda (x) (cdr (cdr (cdr (car x))))))
 (define cddddr (lambda (x) (cdr (cdr (cdr (cdr x))))))
+
+; list
+(define (list . l)
+	(if (null? l) '()
+	l))
+
+; length
+(define (length l)
+	(if (null? l) 0
+	(+ 1 (length (cdr l)))))
+
