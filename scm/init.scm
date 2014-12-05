@@ -131,10 +131,10 @@
 		(apply max (cdr x)))))
 
 ; min
-(define (max . x)
+(define (min . x)
 	(if (= (length x) 1) (car x)
-		(if (< (car x) (apply max (cdr x))) (car x)
-		(apply max (cdr x)))))
+		(if (< (car x) (apply min (cdr x))) (car x)
+		(apply min (cdr x)))))
 
 ; n-ary <=
 ; the set and association list operations 
