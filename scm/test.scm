@@ -1,5 +1,5 @@
 (load "builtin.scm")
-(load "init.scm")
+(load "ini.scm")
 (define (assert pred) (if pred (display "")(display "failed\n")))
 
 (newline)
