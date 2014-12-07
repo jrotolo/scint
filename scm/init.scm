@@ -49,12 +49,43 @@
 	(if (null? l) 0
 		(b<= (car l) (apply <= (cdr l)))))
 
-(define (zero? x) (if (= x 0) #t #f))
-(define (positive? x) (> x 0))
-(define (negative? x) (< x 0))
-(define (not pred) (if pred #f #t))
-(define (even? x) (if (= (modulo x 2) 0) #t #f))
-(define (odd? x) (if (not (= (modulo x 2) 0)) #t #f))
+(define zero?
+  (lambda (x)
+    (if (= x 0)
+      #t
+      #f)))
+
+;; positive?
+(define positive?
+  (lambda (x)
+    (if (> x 0)
+      #t
+      #f)))
+
+;; negative?
+(define negative?
+  (lambda (x)
+    (if (< x 0)
+      #t
+      #f)))
+
+;; odd?
+(define odd?
+  (lambda (x)
+    (cond 
+      ((= x 0) #f)
+      ((= x 1) #t)
+      ((positive? x) (odd? (- x 2)))
+      ((negative? x) (odd? (+ x 2))))))
+
+;; even?
+(define even?
+  (lambda (x)
+    (cond
+      ((= x 0) #t)
+      ((= x 1) #f)
+      ((positive? x) (even? (- x 2)))
+      ((negative? x) (even? (+ x 2))))))
 
 ; and
 (define and
@@ -124,17 +155,25 @@
 		(append (reverse (cdr l))
 			(list (car l)))))
 
-; max
-(define (max . x)
-	(if (= (length x) 1) (car x)
-		(if (> (car x) (apply max (cdr x))) (car x)
-		(apply max (cdr x)))))
+;max
+(define (max . l)
+  (if (= (length l) 1)
+    (car l)
+    (if (null? l)
+      (write "wrong number of arguments")
+      (if (> (car l) (apply max (cdr l)))
+        (car l)
+        (apply max (cdr l))))))
 
-; min
-(define (min . x)
-	(if (= (length x) 1) (car x)
-		(if (< (car x) (apply min (cdr x))) (car x)
-		(apply min (cdr x)))))
+;; min
+(define (min . l)
+  (if (= (length l) 1)
+    (car l)
+    (if (null? l)
+      (write "wrong number of arguments")
+      (if (< (car l) (apply min (cdr l)))
+        (car l)
+        (apply min (cdr l))))))
 
 ; n-ary <=
 ; the set and association list operations 
@@ -175,12 +214,14 @@
 			(assoc e (cdr alist)))))
 
 ; map
-(define (map ele lis)
- (cond ((null? lis)
-  '())
- (cons (ele (car lis))
-    (map ele (cdr lis)))))
+(define (map func lis)
+ (if (null? (car lis)) '()
+ 	(cons (func (car lis) (map func (cdr lis))))))
 
 
 ; for-each
-
+(define (for-each func lis)
+ (if (not (null? (car lis))) '()
+ 	(begin
+ 		(apply func (map car lis))
+ 		(apply for-each func (map cdr l)))))
